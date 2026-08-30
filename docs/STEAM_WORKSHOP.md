@@ -4,6 +4,8 @@ Status: **Not yet configured**
 
 Use this file only when the project is published through Steam Workshop. Otherwise leave it as a stub or remove it.
 
+The root [`../workshop-description.bbcode`](../workshop-description.bbcode) is the public-description template. Replace all bracketed placeholders and keep its claims consistent with the tested behavior recorded in this repository before publication.
+
 ## Identifiers
 
 - Workshop ID: `TBD`

@@ -1,0 +1,5 @@
+name=Project Zomboid Mod Template
+id=pz-mod-id
+description=Template placeholder. Replace all metadata before packaging.
+poster=poster.png
+version=0.1.0

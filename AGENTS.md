@@ -4,7 +4,7 @@ This repository is the starter workspace for a Project Zomboid mod. Before imple
 
 ## Privacy boundary
 
-- Do not copy private assistant conversation content, titles, summaries, prompts, attachments, project metadata, or inferred personal context into this repository without explicit permission.
+- Do not copy private assistant conversation content, titles, summaries, prompts, attachments, project metadata, inferred personal context, logs, or private game/server data into this repository without explicit permission.
 - Do not add persona-identifying or personal information without an explicit request.
 - Translate permitted requirements into impersonal, repository-native technical language.
 - Apply this rule to source, docs, comments, commit messages, fixtures, logs, generated artifacts, and issue or pull-request text.
@@ -22,7 +22,8 @@ This repository is the starter workspace for a Project Zomboid mod. Before imple
    - experiments: `docs/spikes/`;
    - deployment and rollback: `docs/DEPLOYMENT.md`;
    - Workshop publication: `docs/STEAM_WORKSHOP.md`;
-   - release gate: `docs/RELEASE_CHECKLIST.md`.
+   - release gate: `docs/RELEASE_CHECKLIST.md`;
+   - external reference links: `docs/RESEARCH_LINKS.md`.
 4. Treat reproducible tests and live Project Zomboid logs as stronger evidence than remembered API behavior or prior chat assertions.
 
 ## Project facts — complete before implementation
@@ -43,10 +44,15 @@ This repository is the starter workspace for a Project Zomboid mod. Before imple
 - Keep diagnostics off or low-volume by default; enable verbose logging only for focused evidence windows.
 - Do not claim compatibility, performance, or release readiness beyond collected evidence.
 - Keep the deployable mod tree under `Contents/mods/<mod-id>/`; do not package source-control metadata, saves, logs, private configuration, decompiled source, or extracted game assets.
+- Write in American English (`behavior`, `authorize`, `neighbor`, `judgment`) in documentation, code comments, commit messages, and GitHub issues and issue comments. This does not extend to code: engine API names are spelled as Project Zomboid defines them, and several are British (`initialise()` on `ISUIElement`, for example). Never apply a spelling change to source files by blanket search and replace — a sweep that does exactly that can rename call sites and break working code. Correct spelling in prose by hand, and leave identifiers alone.
+- Never hard-wrap markdown paragraphs. Write each paragraph as one unwrapped line and let the renderer wrap it. This applies to repository documents, GitHub issue bodies, issue comments, and pull request descriptions — GitHub renders those with hard line breaks enabled, so a newline inside a paragraph becomes a literal forced break when the window is resized. Fenced code blocks and table rows keep their own line structure.
+- Track open defects and design questions as GitHub Issues once the repository has an issue tracker in use; cross-reference by issue number in `CHANGELOG.md`, `docs/ROADMAP.md`, and `docs/VALIDATION_HISTORY.md` entries so history stays navigable.
 
 ## Verification expectations
 
 - When package structure, `mod.info`, sandbox options, translations, or required Lua modules change, run the applicable validation workflow before claiming success.
+- Keep `VERSION`, every applicable `mod.info` version, and any version reference in `README.md` aligned on every bump. Grep the repository for the previous version string rather than relying on memory of "the usual few spots" — a check that only covers some of the locations will eventually miss one and let them drift.
+- If this repository has `scripts/` test-cycle automation (see `scripts/README.md`), use it for the mod-deploy and log-capture steps around a test run rather than repeating them by hand.
 - For runtime changes, update `docs/TESTING.md` before or with the implementation; add an entry to `docs/VALIDATION_HISTORY.md` only after a real test occurs.
 - Use a spike document for bounded uncertainty or feasibility research. Promote conclusions into requirements, architecture, or an ADR only after evidence supports them.
 - Recheck `git diff` for generated files, logs, server saves, Workshop artifacts, private configuration, and accidental Project Zomboid/third-party assets before committing.

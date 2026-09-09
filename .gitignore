@@ -1,6 +1,7 @@
 # Project Zomboid / local runtime output
 Zomboid/
-Logs/
+Logs/*
+!Logs/README.md
 Saves/
 Server/
 Workshop/
@@ -17,10 +18,17 @@ Thumbs.db
 dist/
 exports/
 *.zip
+*.bak
+*.tmp
+workshop-staging/
+build/
 
 # Never commit private or game-derived material
 .env
 .env.*
 !*.env.example
-decompiled/
+decompiled/*
+!decompiled/README.md
 extracted-game-assets/
+research-source/*
+!research-source/README.md

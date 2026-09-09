@@ -22,6 +22,9 @@ Target baseline: **Project Zomboid Build 42 (confirm the exact version per proje
 - `docs/` — requirements, architecture, testing, validation, deployment, and release controls.
 - `docs/adr/` — durable technical decision records, when needed.
 - `docs/spikes/` — bounded feasibility investigations, when needed.
+- `docs/RESEARCH_LINKS.md` — external reference links, when tracked.
+- `scripts/` — optional test-cycle automation; see `scripts/README.md`. Remove if unused.
+- `Logs/`, `decompiled/`, `research-source/` — optional gitignored working directories for test logs, decompiled engine source, and external research material; see each folder's README. Remove if unused.
 - `CHANGELOG.md`, `VERSION`, and release/legal files — public release identity and provenance controls.
 
 ## Documentation map

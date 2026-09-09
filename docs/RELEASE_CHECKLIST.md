@@ -1,5 +1,7 @@
 # Release checklist
 
+Status: **Not relevant until preparing a release.**
+
 Do not mark a release ready until each applicable item is complete and supported by evidence.
 
 - [ ] `VERSION`, `CHANGELOG.md`, and all applicable `mod.info` files agree.

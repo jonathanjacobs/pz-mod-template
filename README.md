@@ -6,6 +6,12 @@ Status: **Template / not a deployable mod**
 Template version: **v0.1.0**  
 Target baseline: **Project Zomboid Build 42 (confirm the exact version per project)**
 
+## Why this template looks the way it does
+
+This is more scaffolding than a small mod strictly needs on day one, and that is intentional. The target workflow is many development sessions — often with an AI coding agent — spread across weeks or months, where nothing survives between sessions except what is written down in this repository. `docs/VALIDATION_HISTORY.md`'s evidence discipline and `docs/DOCUMENTATION_OWNERSHIP.md`'s single-source-of-truth rule exist specifically to stop a long-running project from drifting into unsupported claims or duplicated, contradicting facts across files — the docs function as the project's durable memory, re-read at the start of each session rather than trusted to anyone's recollection.
+
+If a project is short-lived or exploratory, most of this can be ignored or deleted; see the repository map below for what is core versus optional. If it is going to run for months across many sessions, keep the discipline — it is what makes that possible.
+
 ## Start a new mod
 
 1. Create a repository from this template.
@@ -16,16 +22,38 @@ Target baseline: **Project Zomboid Build 42 (confirm the exact version per proje
 
 ## Repository map
 
+### Core — keep from day one
+
 - `AGENTS.md` — development handoff and working rules.
 - `Contents/mods/` — deployable Project Zomboid mod package(s).
+- `VERSION`, `CHANGELOG.md` — release identity.
+- `LICENSE`, `NOTICE` — the template's own licensing.
+- `COMPLIANCE.md`, `docs/PZ_MODDING_POLICY.md` — modding-policy rules that apply from the first commit, not just at release.
 - `docs/DOCUMENTATION_OWNERSHIP.md` — authoritative document map and update rules.
-- `docs/` — requirements, architecture, testing, validation, deployment, and release controls.
-- `docs/adr/` — durable technical decision records, when needed.
-- `docs/spikes/` — bounded feasibility investigations, when needed.
-- `docs/RESEARCH_LINKS.md` — external reference links, when tracked.
-- `scripts/` — optional test-cycle automation; see `scripts/README.md`. Remove if unused.
-- `Logs/`, `decompiled/`, `research-source/` — optional gitignored working directories for test logs, decompiled engine source, and external research material; see each folder's README. Remove if unused.
-- `CHANGELOG.md`, `VERSION`, and release/legal files — public release identity and provenance controls.
+- `docs/REQUIREMENTS.md` — normative behavior.
+- `docs/ARCHITECTURE.md` — implementation design.
+
+### Grows with the project — start as a stub, fill in as work happens
+
+- `docs/ROADMAP.md` — planned work and milestones.
+- `docs/TESTING.md` — repeatable test procedure.
+- `docs/VALIDATION_HISTORY.md` — actual test outcomes.
+- `docs/adr/` — durable technical decision records, once a decision has real alternatives.
+- `docs/spikes/` — bounded feasibility investigations, once one is needed.
+- `docs/DEPLOYMENT.md` — packaging, install, and rollback, once there's something to install.
+- `THIRD_PARTY_NOTICES.md`, `ASSET_LICENSE.md` — provenance records, filled in as third-party or non-code material is added.
+
+### Pre-release / Workshop-publication only — dormant until you're preparing to ship
+
+- `docs/RELEASE_CHECKLIST.md` — the release gate.
+- `docs/STEAM_WORKSHOP.md`, `workshop-description.bbcode` — Workshop publication; leave as a stub or remove if not publishing there.
+
+### Fully optional — delete freely if you don't use the workflow
+
+- `docs/RESEARCH_LINKS.md` — external reference links, if tracking them helps.
+- `scripts/` — test-cycle automation; see `scripts/README.md`.
+- `Logs/`, `decompiled/`, `research-source/` — gitignored working directories for test logs, decompiled engine source, and external research material; see each folder's README.
+- `tools/` — shared tools, only if something is genuinely reusable across the repository.
 
 ## Documentation map
 

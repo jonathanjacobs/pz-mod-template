@@ -16,9 +16,9 @@ This applies to committed files and equally to commit messages, pull request tex
 
 ## Describe environments by kind
 
-Validation history, spikes, and bug reports need to say where a test ran, but not which machine. Write the kind of environment and what matters about it, for example "a rented dedicated server on Linux, 3 players" or "a hosted game from the developer's machine with one other client". When quoting a log line, quote only the lines that matter and replace private values with placeholders such as `<server-ip>` or `<steam-id>`. Raw logs stay in the gitignored [`../Logs/`](../Logs/) folder.
+Validation history, spikes, and bug reports need to say where a test ran, but not which machine. Write the kind of environment and what matters about it, for example "a rented dedicated server on Linux, 3 players" or "a hosted game from the developer's machine with one other client". When quoting a log line, quote only the lines that matter and replace private values with placeholders such as `<server-ip>` or `<steam-id>`. Raw logs stay in a local folder outside the repository.
 
-Keep real settings, such as a remote test server's SFTP details, in an ignored local file, and commit a copy with placeholder values under a name ending in `.example`, as [`../scripts/README.md`](../scripts/README.md#remote-test-server-secrets) describes.
+Keep real settings, such as a remote test server's SFTP details, in an ignored local file, and commit a copy with placeholder values under a name ending in `.example`, as [Local files and automation](TESTING.md#local-files-and-automation) describes.
 
 Authenticate to GitHub with `gh auth login` or a credential helper. Do not put a token in a remote URL: when a URL is passed to `git push -u` or `git push --set-upstream`, Git saves the whole URL, token included, in `.git/config` as the branch's remote.
 

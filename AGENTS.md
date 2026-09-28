@@ -34,7 +34,7 @@ This mod was created from [pz-mod-template](https://github.com/jonathanjacobs/pz
    - experiments: `docs/spikes/`;
    - installation and configuration reference: `README.md`;
    - release checklist: `docs/RELEASING.md`;
-   - Workshop publication: `docs/RELEASING.md`, with public text in `workshop-description.bbcode`;
+   - Workshop publication: `docs/RELEASING.md`, with public text in `docs/workshop-description.bbcode`;
    - rollback: `docs/RELEASING.md`;
    - asset and third-party provenance: `CREDITS.md`;
    - private details kept out of the repository, and leak response: `docs/PRIVATE_DATA.md`;
@@ -51,7 +51,7 @@ This mod was created from [pz-mod-template](https://github.com/jonathanjacobs/pz
 - Supported Project Zomboid build: `TBD`
 - Primary multiplayer target: `TBD`
 - Current development branch/release state: `TBD`
-- Template version: `v0.5.0` (the pz-mod-template release this repository's files match; update it after applying a template upgrade)
+- Template version: `v0.6.0` (the pz-mod-template release this repository's files match; update it after applying a template upgrade)
 
 ## Current development context
 
@@ -82,7 +82,7 @@ Keep this section short and current. Record what an agent starting cold must kno
 - Before committing, run `bash tools/check-sensitive-content.sh staged` unless the pre-commit hook is already on (`git config core.hooksPath` prints `.githooks`).
 - When reporting work, name each check as passed, failed, or skipped, including checks a script skipped on its own and in-game tests that were not run. State a skipped or inconclusive check as plainly as a passed one; it is never a pass.
 - Keep `VERSION`, the `modversion=` line in every `mod.info`, and any version reference in `README.md` aligned on every bump. Grep the repository for the previous version string rather than relying on memory of "the usual few spots" — a check that only covers some of the locations will eventually miss one and let them drift.
-- If this repository has `scripts/` test-cycle automation (see `scripts/README.md`), use it for the mod-deploy and log-capture steps around a test run rather than repeating them by hand.
+- If `tools/` has test-cycle scripts (see "Local files and automation" in `docs/TESTING.md`), use them for the mod-deploy and log-capture steps around a test run rather than repeating them by hand. Test logs, decompiled source, and research material live in local folders outside the repository; read them only where the user has granted access, and never copy them in.
 - For runtime changes, update `docs/TESTING.md` before or with the implementation; add an entry to `docs/VALIDATION_HISTORY.md` only after a real test occurs.
 - Use a spike document for bounded uncertainty or feasibility research. Promote conclusions into the requirements or architecture in `docs/DESIGN.md`, or into an ADR, only after evidence supports them.
 - Recheck `git diff` for generated files, logs, server saves, Workshop artifacts, private configuration, and accidental Project Zomboid/third-party assets before committing.

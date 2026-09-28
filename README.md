@@ -3,7 +3,7 @@
 Starter repository for an independent Project Zomboid mod. Use this repository as a Git template, then replace the `TBD` values and remove any scaffolding that has no job in the new project.
 
 Status: **Template / not a deployable mod**  
-Template version: **v0.5.0**  
+Template version: **v0.6.0**  
 Target baseline: **Project Zomboid Build 42 (confirm the exact version per project)**
 
 ## Why this template looks the way it does
@@ -51,15 +51,15 @@ In Claude Code, run `/adopt` to be asked the questions behind these steps one st
 
 - `docs/adr/` — durable decision records, once a decision has real alternatives.
 - `docs/spikes/` — bounded feasibility investigations, once engine behavior needs an experiment.
-- `docs/RELEASING.md`, `workshop.txt`, `workshop-description.bbcode` — release checklist, Workshop publication, and rollback. Add `preview.png` at the root before the first upload; remove the Workshop files if not publishing there.
+- `docs/RELEASING.md`, `workshop.txt`, `docs/workshop-description.bbcode` — release checklist, Workshop publication, and rollback. Add `preview.png` at the root before the first upload; remove the Workshop files if not publishing there.
 
 ### Optional — delete freely if you don't use the workflow
 
 - `docs/ADOPTION_INTERVIEW.md`, `.claude/` — the setup questions and the `/adopt` command that asks them; delete both once the mod is set up. Delete `.claude/` and `CLAUDE.md` if the mod does not use Claude Code.
 - `docs/RESEARCH_LINKS.md` — external reference links and mods studied for ideas.
 - `.github/ISSUE_TEMPLATE/`, `.github/pull_request_template.md`, `.github/FUNDING.yml` — Project Zomboid-specific issue templates, the questions each pull request answers, and optional sponsor links; the funding file is all comments until filled in. [`.github/workflows/README.md`](.github/workflows/README.md) lists each workflow and job.
-- `scripts/` — test-cycle automation; see `scripts/README.md`.
-- `Logs/`, `decompiled/`, `research-source/` — gitignored working directories for test logs, decompiled engine source, and external research material; see each folder's README.
+
+Test logs, decompiled game source, and research material stay in local folders outside the repository; [`docs/TESTING.md`](docs/TESTING.md#local-files-and-automation) explains how to give a coding agent access to them and what test-cycle scripts are worth adding to `tools/`.
 
 ## License and status
 

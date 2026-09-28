@@ -1,7 +1,5 @@
 # Project Zomboid / local runtime output
 Zomboid/
-Logs/*
-!Logs/README.md
 Saves/
 Server/
 Workshop/
@@ -37,8 +35,12 @@ build/
 id_rsa*
 id_ecdsa*
 id_ed25519*
-decompiled/*
-!decompiled/README.md
 extracted-game-assets/
-research-source/*
-!research-source/README.md
+
+# Test logs, decompiled game source, and research material belong in local
+# folders outside the repository. These lines catch copies placed here anyway.
+Logs/
+decompiled/
+research-source/
+*.java
+*.class

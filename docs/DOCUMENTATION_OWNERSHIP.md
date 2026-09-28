@@ -18,7 +18,7 @@ This file defines where mutable project information belongs so the repository do
 | Actual test outcomes | [`VALIDATION_HISTORY.md`](VALIDATION_HISTORY.md) |
 | Experimental evidence | [`spikes/`](spikes/) |
 | Release checklist, Workshop publication, and rollback | [`RELEASING.md`](RELEASING.md) |
-| Public Workshop text | [`../workshop-description.bbcode`](../workshop-description.bbcode) and [`../workshop.txt`](../workshop.txt) |
+| Public Workshop text | [`workshop-description.bbcode`](workshop-description.bbcode) and [`../workshop.txt`](../workshop.txt) |
 | Modding-policy rules | [`PZ_MODDING_POLICY.md`](PZ_MODDING_POLICY.md) |
 | Asset and third-party provenance | [`../CREDITS.md`](../CREDITS.md) |
 | Private details kept out of the repository, and leak response | [`PRIVATE_DATA.md`](PRIVATE_DATA.md) |
@@ -26,7 +26,7 @@ This file defines where mutable project information belongs so the repository do
 | External reference links and mods studied for ideas | [`RESEARCH_LINKS.md`](RESEARCH_LINKS.md) |
 | Agent working rules and current development context | [`../AGENTS.md`](../AGENTS.md) (imported by [`../CLAUDE.md`](../CLAUDE.md), which holds no rules of its own) |
 | Automated checks (package, Lua syntax, sensitive content) | [`../tools/`](../tools/) scripts, documented in [`../tools/README.md`](../tools/README.md) and run by [`../.github/workflows/`](../.github/workflows/README.md) and the [`../.githooks/`](../.githooks/) pre-commit hook |
-| Test-cycle automation | [`../scripts/README.md`](../scripts/README.md) |
+| Test-cycle scripts and local working folders (logs, decompiled source, research material) | [Local files and automation](TESTING.md#local-files-and-automation) in `TESTING.md`; scripts themselves go in [`../tools/`](../tools/README.md) |
 
 ## Where to start by reader
 

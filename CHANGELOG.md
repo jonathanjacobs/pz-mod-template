@@ -22,6 +22,24 @@ Every minor or major release has an `Upgrading` subsection, even when it only sa
 
 ## [Unreleased]
 
+## [0.6.0] - 2026-09-28
+
+### Changed
+
+- `workshop-description.bbcode` moved from the repository root to `docs/workshop-description.bbcode`. `tools/validate-package.sh` checks it there, and warns when a copy is still at the root.
+- Test logs, decompiled game source, and research material now live in local folders outside the repository. "Local files and automation" in `docs/TESTING.md` says so, explains how to give Claude Code access to those folders (`/add-dir`, or `permissions.additionalDirectories` in `.claude/settings.local.json`), and carries the test-cycle script suggestions and the remote-server settings layout that were in `scripts/README.md`. Test-cycle scripts now go in `tools/`.
+- `.gitignore` keeps ignoring `Logs/`, `decompiled/`, and `research-source/`, in case copies are placed inside the repository, and now also ignores `*.java` and `*.class`.
+
+### Removed
+
+- The `Logs/`, `decompiled/`, and `research-source/` placeholder folders and their READMEs.
+- `scripts/`, which held only a README of suggested scripts and `server.env.example`.
+- The adoption interview's question about keeping decompiled source or research material, which only decided whether those folders were deleted.
+
+### Upgrading
+
+Action needed only with the new `tools/validate-package.sh`: move `workshop-description.bbcode` into `docs/` at the same time (`git mv workshop-description.bbcode docs/`), and fix links to it. Otherwise optional: move anything kept in `Logs/`, `decompiled/`, or `research-source/` to a folder outside the repository, delete those folders and `scripts/` if unused, and take the `.gitignore` lines.
+
 ## [0.5.0] - 2026-09-28
 
 ### Added

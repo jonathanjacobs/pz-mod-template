@@ -19,7 +19,6 @@ Two answers are always acceptable: `TBD`, meaning the question applies and nobod
 2. **Will it be published on the Steam Workshop?** Yes · not yet decided · no.
 3. **Will it distribute any non-code files** (poster, icon, textures, sounds, models), **or anything not written from scratch for this mod,** such as code or data from another mod, or images made with a generation tool? Yes · no.
 4. **How will it be tested?** On this machine only · also on a dedicated server reached remotely.
-5. **Will you keep decompiled game source, saved documentation, or other mods on this machine for study?** Yes · no.
 
 Stages 2, 3, 4, 8, and 9 apply to every mod. The answers switch on the rest:
 
@@ -31,7 +30,7 @@ Stages 2, 3, 4, 8, and 9 apply to every mod. The answers switch on the rest:
 | Question 3: yes | Stage 7 |
 | Question 4: a remote dedicated server | The remote-server part of stage 8 |
 
-Answers to questions 2, 4, and 5 also decide what stage 9 removes.
+The answer to question 2 also decides what stage 9 removes.
 
 ## Stage 2 — Identity
 
@@ -81,7 +80,7 @@ These names are stored in saves and server settings or used by other mods, so th
 - Who will make the preview image, poster, and icon, and how: drawn, photographed, or generated with a named tool?
 - Will the description have a support or donation section? Donations may unlock nothing (rule 6 in [`PZ_MODDING_POLICY.md`](PZ_MODDING_POLICY.md)).
 
-**Answers go in:** `workshop.txt`, `workshop-description.bbcode`, and the Mod ID and Workshop ID lines at the top of [`RELEASING.md`](RELEASING.md). The artwork's origin goes in stage 7.
+**Answers go in:** `workshop.txt`, [`workshop-description.bbcode`](workshop-description.bbcode), and the Mod ID and Workshop ID lines at the top of [`RELEASING.md`](RELEASING.md). The artwork's origin goes in stage 7.
 
 ## Stage 7 — Assets and outside material
 
@@ -102,16 +101,15 @@ Write `unresolved` where you cannot answer, and do not ship that item until the 
 - What is the simplest sign in game that the mod is working? This becomes step 2 of the smoke test.
 - Turn on the pre-commit check now: `git config core.hooksPath .githooks`.
 - Are there player names or server host names that must never appear in the repository? Do not type them into this interview. Add them yourself, as described in [`PRIVATE_DATA.md`](PRIVATE_DATA.md#automated-check): in a `SENSITIVE_PATTERNS` repository secret, and in a patterns file outside the repository.
-- For a remote server: copy `scripts/server.env.example` to `.env.server` and fill it in locally. It stays out of Git.
+- Where will test logs, and any decompiled source or research material, be kept? Use local folders outside the repository, and grant a coding agent access to them as [Local files and automation](TESTING.md#local-files-and-automation) describes.
+- For a remote server: create `.env.server` from the placeholder layout in that same section, and fill it in locally. It stays out of Git.
 
-**Answers go in:** "Before testing" and "Smoke test" in [`TESTING.md`](TESTING.md), and [`../scripts/README.md`](../scripts/README.md) when scripts are added.
+**Answers go in:** "Before testing" and "Smoke test" in [`TESTING.md`](TESTING.md), and [`../tools/README.md`](../tools/README.md) when test-cycle scripts are added.
 
 ## Stage 9 — Removing what you do not use
 
 - Delete what stage 1 ruled out:
-  - not publishing on the Workshop: `workshop.txt`, `workshop-description.bbcode`, and the Workshop sections of `RELEASING.md`;
-  - testing on this machine only, with no plans for scripts: `scripts/`;
-  - no decompiled source or research material: `decompiled/` and `research-source/`, with their `.gitignore` entries;
+  - not publishing on the Workshop: `workshop.txt`, `docs/workshop-description.bbcode`, and the Workshop sections of `RELEASING.md`;
   - no issue tracker or sponsor links: `.github/ISSUE_TEMPLATE/` and `.github/FUNDING.yml`.
 - Replace the "Using this template" section of `AGENTS.md` with the "Relationship to pz-mod-template" section it provides.
 - In `CHANGELOG.md`, delete "How the template is versioned" and the template's entries, and start the mod's own history with `## [Unreleased]`.

@@ -58,7 +58,7 @@ Project Zomboid version and revision, mod build, topology described by kind, and
 
 ## Evidence
 
-What was observed, including unexpected, partial, and negative results, with the relevant log lines (private values replaced). Raw logs stay in the gitignored `Logs/` folder.
+What was observed, including unexpected, partial, and negative results, with the relevant log lines (private values replaced). Raw logs stay in a local folder outside the repository.
 
 ## Outcome
 

@@ -2,9 +2,9 @@
 
 Status: **Not relevant until preparing a release.**
 
-Do not update for: player-facing installation or configuration ([`../README.md`](../README.md)), Workshop description text ([`../workshop-description.bbcode`](../workshop-description.bbcode)), or test results ([`VALIDATION_HISTORY.md`](VALIDATION_HISTORY.md)).
+Do not update for: player-facing installation or configuration ([`../README.md`](../README.md)), Workshop description text ([`workshop-description.bbcode`](workshop-description.bbcode)), or test results ([`VALIDATION_HISTORY.md`](VALIDATION_HISTORY.md)).
 
-This document owns how a version gets from the repository to players: the release checklist, Steam Workshop publication, post-release checks, and rollback. Player-facing installation and configuration live in [`../README.md`](../README.md); public Workshop text is canonical in [`../workshop-description.bbcode`](../workshop-description.bbcode). If the mod is not published on the Workshop, delete the Workshop sections along with `workshop.txt` and `workshop-description.bbcode`.
+This document owns how a version gets from the repository to players: the release checklist, Steam Workshop publication, post-release checks, and rollback. Player-facing installation and configuration live in [`../README.md`](../README.md); public Workshop text is canonical in [`workshop-description.bbcode`](workshop-description.bbcode). If the mod is not published on the Workshop, delete the Workshop sections along with `workshop.txt` and `workshop-description.bbcode`.
 
 Project Zomboid Mod ID: `TBD`  
 Permanent Steam Workshop ID: `TBD` (assigned on first upload)
@@ -45,7 +45,7 @@ Watch these during normal play rather than staging tests for them, record anythi
 2. Prepare a clean authoring directory under `Zomboid/Workshop/<item-name>/` from the repository, for example `git archive HEAD | tar -x -C <authoring-dir>`. That exports only tracked files, which keeps `.git/`, logs, saves, credentials, and decompiled source out; tracked docs and tooling come along, which is harmless.
 3. In Project Zomboid, use **Workshop → Create and Update Items** to update the existing item. Never create a new item for a routine update.
 4. Write an accurate change note (BBCode works). If the uploader does not carry it over, add or edit it on the item's Steam **Change Notes** tab.
-5. **Paste [`../workshop-description.bbcode`](../workshop-description.bbcode) into the item description again.** Every upload replaces the Steam description with the one-line `description=` summary from `workshop.txt`.
+5. **Paste [`workshop-description.bbcode`](workshop-description.bbcode) into the item description again.** Every upload replaces the Steam description with the one-line `description=` summary from `workshop.txt`.
 6. After the first upload only: commit the `id=` line the uploader wrote into `workshop.txt`, and record the Workshop ID above and in [`../AGENTS.md`](../AGENTS.md).
 
 **Do not subscribe to the item on the machine that holds the authoring copy.** The subscribed and authoring copies share the Mod ID, and the game can load files from both, so older Lua or sandbox options may run alongside the new version. Verify from the dedicated server or from a client without the authoring copy.
@@ -73,10 +73,10 @@ A clean repository root doubles as the Workshop item directory:
 ```text
 <workshop-item>/
 ├── workshop.txt
-├── workshop-description.bbcode
+├── docs/workshop-description.bbcode
 ├── preview.png
 ├── Contents/mods/<mod-id>/      (the only runtime tree; see DESIGN.md)
-└── README.md, CHANGELOG.md, docs/, licensing files
+└── README.md, CHANGELOG.md, the rest of docs/, licensing files
 ```
 
 ### `workshop.txt`
@@ -99,7 +99,7 @@ Record the provenance of every image in [`../CREDITS.md`](../CREDITS.md). Do not
 
 ### Workshop description
 
-- Update [`../workshop-description.bbcode`](../workshop-description.bbcode) in Git when public behavior or status changes, then paste it into the item. Do not keep a second copy of the description anywhere else.
+- Update [`workshop-description.bbcode`](workshop-description.bbcode) in Git when public behavior or status changes, then paste it into the item. Do not keep a second copy of the description anywhere else.
 - Steam does not render `[center]` or `[br]`; they show as literal text. Use blank lines for spacing. The validator rejects both.
 - Replace every bracketed `[PLACEHOLDER]` before the first publication.
 - An optional support or donation section is allowed as long as donations unlock nothing (rule 6 in [`PZ_MODDING_POLICY.md`](PZ_MODDING_POLICY.md)). Host any button image externally and link it with `[url=...][img]...[/img][/url]`.

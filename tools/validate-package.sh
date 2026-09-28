@@ -122,17 +122,22 @@ while read -r label; do
   [[ "$label" == "v$VERSION_VALUE" ]] || fail "README.md shows version $label (expected v$VERSION_VALUE)"
 done < <(grep -oE '\*\*v[0-9]+\.[0-9]+\.[0-9]+\*\*' README.md 2>/dev/null | tr -d '*' | sort -u)
 
+BBCODE="docs/workshop-description.bbcode"
+# Template 0.6.0 moved the description from the repository root into docs/.
 if [[ -f workshop-description.bbcode ]]; then
-  bb_version="$(text workshop-description.bbcode | sed -n 's/^\[b\]Version:\[\/b\] *//p' | head -1)"
+  warn "workshop-description.bbcode is at the repository root; move it to $BBCODE, where these checks look for it"
+fi
+if [[ -f "$BBCODE" ]]; then
+  bb_version="$(text "$BBCODE" | sed -n 's/^\[b\]Version:\[\/b\] *//p' | head -1)"
   if [[ -n "$bb_version" && "$bb_version" != "[VERSION]" && "$bb_version" != "$VERSION_VALUE" ]]; then
-    fail "workshop-description.bbcode shows Version: $bb_version (expected $VERSION_VALUE)"
+    fail "$BBCODE shows Version: $bb_version (expected $VERSION_VALUE)"
   fi
   # Steam does not render these tags; they show up as literal text.
-  if grep -nE '\[/?(center|br)\]' workshop-description.bbcode; then
-    fail "workshop-description.bbcode uses [center] or [br], which Steam does not render"
+  if grep -nE '\[/?(center|br)\]' "$BBCODE"; then
+    fail "$BBCODE uses [center] or [br], which Steam does not render"
   fi
-  if [[ "$PUBLISHING" -eq 1 ]] && grep -nE '[[A-Z][A-Z0-9_ ]{2,}]' workshop-description.bbcode; then
-    fail "workshop-description.bbcode still contains [PLACEHOLDER] text"
+  if [[ "$PUBLISHING" -eq 1 ]] && grep -nE '[[A-Z][A-Z0-9_ ]{2,}]' "$BBCODE"; then
+    fail "$BBCODE still contains [PLACEHOLDER] text"
   fi
 fi
 
@@ -248,7 +253,7 @@ fi
 #   fi
 #
 # Keep a pre-release label from returning after a stable release:
-#   if grep -RIni 'release candidate' "$MOD_ROOT" README.md workshop.txt workshop-description.bbcode; then
+#   if grep -RIni 'release candidate' "$MOD_ROOT" README.md workshop.txt "$BBCODE"; then
 #     fail "pre-release label found in package or public text"
 #   fi
 

@@ -11,7 +11,7 @@ Format: newest release first, each as `## [x.y.z] - YYYY-MM-DD` with `Added`, `C
 ### Added
 
 - `tools/validate-package.sh` and a `Validate Package` GitHub Actions workflow that check package layout, `mod.info` identity and version, version drift across public text and runtime Lua, sandbox-option translations, package hygiene, and artwork.
-- Root `workshop.txt` template and `.gitattributes` export rules for building a clean Workshop authoring directory with `git archive`.
+- Root `workshop.txt` template, and a `.gitattributes` rule that keeps shell scripts LF.
 - Project Zomboid-specific issue templates and an optional, commented-out `.github/FUNDING.yml`.
 - `docs/README.md` routing page, a compatibility-checkpoint template in `docs/VALIDATION_HISTORY.md`, and a "Current development context" section in `AGENTS.md`.
 

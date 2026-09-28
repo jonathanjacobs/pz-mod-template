@@ -32,7 +32,7 @@ A clean repository root is intentionally usable as the Project Zomboid Workshop 
 
 There is one authoritative deployable runtime tree, `Contents/mods/<mod-id>/`. Do not create a second root-level `42/`, `common/`, or runtime `mod.info` copy.
 
-Public documentation may be included intentionally. `.git/`, logs, saves, credentials, private configuration, local test artifacts, backups, decompiled source, and scratch material must never be copied into the authoring directory. `git archive HEAD | tar -x -C <authoring-dir>` exports only tracked files, and paths marked `export-ignore` in [`../.gitattributes`](../.gitattributes) (CI, tools, scripts, and local working folders) are left out.
+Public documentation may be included intentionally. `.git/`, logs, saves, credentials, private configuration, local test artifacts, backups, decompiled source, and scratch material must never be copied into the authoring directory. `git archive HEAD | tar -x -C <authoring-dir>` exports only tracked files, which keeps all of those out; tracked docs and development tooling come along with it, which is harmless.
 
 ## `workshop.txt`
 

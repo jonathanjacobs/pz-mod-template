@@ -2,7 +2,7 @@
 
 Status: **Not yet planned**
 
-Track current work, sequenced milestones, known risks, and the evidence required to leave each milestone. Do not use this file as a detailed validation log.
+Track milestones, their order, known risks, and the evidence required to leave each milestone. Individual defects and design questions live in GitHub Issues; cite them here by number rather than restating them. Release criteria live in [`RELEASING.md`](RELEASING.md#release-checklist). Do not use this file as a validation log.
 
 ## Current milestone
 
@@ -11,7 +11,3 @@ Track current work, sequenced milestones, known risks, and the evidence required
 ## Next decisions
 
 - `TBD`
-
-## Stable-release boundary
-
-A stable release requires reliable behavior in normal play, no known high-severity player, save, or world-state risk, documented deployment and rollback, and compatibility claims limited to tested combinations. Optional experimental features require their own validation gate before they are enabled by default. The concrete gate is in [`RELEASE_CHECKLIST.md`](RELEASE_CHECKLIST.md).

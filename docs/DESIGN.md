@@ -1,10 +1,34 @@
-# Architecture
+# Design
 
 Status: **Not yet defined**
 
-Document the implementation once a design exists. Cover module responsibilities, Lua client/server/shared boundaries, persistence, networking, configuration, and diagnostics. Link to an ADR for durable decisions with meaningful alternatives.
+This document has two parts with different authority. **Requirements** state what the mod must do, as players and server operators see it. **Architecture** describes how the current implementation does it. Keep them separate: an implementation detail is not a requirement until it is written into the requirements section, and a requirement does not change because the code happens to behave differently.
 
-## Runtime layout
+## Requirements
+
+### Project identity
+
+- Mod name: `TBD`
+- Mod ID: `TBD`
+- Target Build: `TBD`
+- Primary supported mode: `TBD` (single-player, dedicated multiplayer, or both)
+
+### Scope
+
+- In scope: `TBD`
+- Explicitly out of scope: `TBD`
+
+### Behavior
+
+Add numbered, testable requirements (`R1`, `R2`, …) so tests, commits, and issues can cite them. State authority, save/load expectations, compatibility assumptions, configuration defaults, and failure behavior where relevant.
+
+- `R1` — `TBD`
+
+## Architecture
+
+Cover module responsibilities, Lua client/server/shared boundaries, persistence, networking, configuration, and diagnostics once a design exists. Record a decision with realistic alternatives as an ADR under [`adr/`](adr/).
+
+### Runtime layout
 
 ```text
 Contents/mods/<mod-id>/
@@ -30,7 +54,7 @@ Both `mod.info` files carry the same `id=`, `name=`, `description=`, `author=`, 
 
 There is one authoritative runtime tree. Do not create a second root-level `42/`, `common/`, `media/`, or `mod.info` copy.
 
-## Build stamp and version handshake
+### Build stamp and version handshake
 
 Recommended from the first multiplayer build. Mixed-version installs — a stale local copy beside the Workshop copy, a client that has not downloaded the update, or a server that has not restarted — are a common cause of confusing test results, and they are invisible unless the mod reports which build is running.
 
@@ -39,8 +63,8 @@ Recommended from the first multiplayer build. Mixed-version installs — a stale
 - **Server to client:** include `buildVersion` in the first state message each client receives.
 - **Client:** log `[<ModName>] SERVER_BUILD | x.y.z` once on receipt, and log `BUILD_MISMATCH | client=… | server=…` once if it differs from the client's own build.
 
-With this in place, confirming that everyone runs the same package is a log search rather than a guess, and it is the first step in [`TESTING.md`](TESTING.md#before-testing) and in post-deployment verification.
+With this in place, confirming that everyone runs the same package is a log search rather than a guess, and it is the first step in [`TESTING.md`](TESTING.md#before-testing) and in post-release verification.
 
-## Design
+### Components
 
 `TBD`

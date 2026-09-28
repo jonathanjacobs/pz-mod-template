@@ -12,7 +12,7 @@ Local, gitignored copies (saved wiki pages, community notes, other Workshop mods
 
 ## Mods studied for reference
 
-Other Steam Workshop mods examined for implementation *ideas* (not copied code or assets — see [`PZ_MODDING_POLICY.md`](PZ_MODDING_POLICY.md); public availability of a mod does not grant redistribution rights). Listed here for credit and traceability. If any code or asset is ever actually adapted or copied, it must instead be recorded in [`../THIRD_PARTY_NOTICES.md`](../THIRD_PARTY_NOTICES.md) with full provenance before release.
+Other Steam Workshop mods examined for implementation *ideas* (not copied code or assets — see [`PZ_MODDING_POLICY.md`](PZ_MODDING_POLICY.md); public availability of a mod does not grant redistribution rights). Listed here for credit and traceability. If any code or asset is ever actually adapted or copied, it must instead be recorded in [`../CREDITS.md`](../CREDITS.md) with full provenance before release.
 
 | Mod | Author | What we looked at it for |
 | --- | --- | --- |

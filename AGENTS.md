@@ -14,17 +14,19 @@ This repository is the starter workspace for a Project Zomboid mod. Before imple
 1. Run `git status --short --branch` and preserve unrelated user changes.
 2. Read `docs/DOCUMENTATION_OWNERSHIP.md` before changing documentation.
 3. Use the canonical document for the subject being changed:
-   - behavior: `docs/REQUIREMENTS.md`;
-   - implementation: `docs/ARCHITECTURE.md` and `docs/adr/`;
-   - planned work and release gates: `docs/ROADMAP.md`;
+   - behavior: the Requirements section of `docs/DESIGN.md`;
+   - implementation: the Architecture section of `docs/DESIGN.md`, and `docs/adr/`;
+   - planned work and milestones: `docs/ROADMAP.md`;
    - test procedure: `docs/TESTING.md`;
    - completed evidence: `docs/VALIDATION_HISTORY.md`;
    - experiments: `docs/spikes/`;
-   - deployment and rollback: `docs/DEPLOYMENT.md`;
-   - Workshop publication: `docs/STEAM_WORKSHOP.md`;
-   - release gate: `docs/RELEASE_CHECKLIST.md`;
+   - installation and configuration reference: `README.md`;
+   - release checklist: `docs/RELEASING.md`;
+   - Workshop publication: `docs/RELEASING.md`, with public text in `workshop-description.bbcode`;
+   - rollback: `docs/RELEASING.md`;
+   - asset and third-party provenance: `CREDITS.md`;
    - external reference links: `docs/RESEARCH_LINKS.md`.
-4. Treat reproducible tests and live Project Zomboid logs as stronger evidence than remembered API behavior or prior chat assertions. Before interpreting any test or log, confirm the client and server ran the same package (see the build-stamp convention in `docs/ARCHITECTURE.md`); duplicate local and Workshop copies with the same Mod ID can load mixed Lua and sandbox-option versions.
+4. Treat reproducible tests and live Project Zomboid logs as stronger evidence than remembered API behavior or prior chat assertions. Before interpreting any test or log, confirm the client and server ran the same package (see the build-stamp convention in `docs/DESIGN.md`); duplicate local and Workshop copies with the same Mod ID can load mixed Lua and sandbox-option versions.
 
 ## Project facts — complete before implementation
 
@@ -46,7 +48,7 @@ Keep this section short and current. Record what an agent starting cold must kno
 - Target only the Project Zomboid build(s) recorded in `VERSION`, `README.md`, and the canonical project docs.
 - Preserve server authority for shared multiplayer state; explicitly document any client-only behavior.
 - Avoid patching Project Zomboid Java/core files for ordinary Workshop distribution.
-- Do not copy third-party mod code or artwork without verified permission. Record any permitted material in `THIRD_PARTY_NOTICES.md` and `ASSET_LICENSE.md` before distribution.
+- Do not copy third-party mod code or artwork without verified permission. Record any permitted material, and the origin of every distributed asset, in `CREDITS.md` before distribution.
 - Keep diagnostics off or low-volume by default; enable verbose logging only for focused evidence windows.
 - Do not claim compatibility, performance, or release readiness beyond collected evidence.
 - Keep the deployable mod tree under `Contents/mods/<mod-id>/`; do not package source-control metadata, saves, logs, private configuration, decompiled source, or extracted game assets.
@@ -60,5 +62,5 @@ Keep this section short and current. Record what an agent starting cold must kno
 - Keep `VERSION`, the `modversion=` line in every `mod.info`, and any version reference in `README.md` aligned on every bump. Grep the repository for the previous version string rather than relying on memory of "the usual few spots" — a check that only covers some of the locations will eventually miss one and let them drift.
 - If this repository has `scripts/` test-cycle automation (see `scripts/README.md`), use it for the mod-deploy and log-capture steps around a test run rather than repeating them by hand.
 - For runtime changes, update `docs/TESTING.md` before or with the implementation; add an entry to `docs/VALIDATION_HISTORY.md` only after a real test occurs.
-- Use a spike document for bounded uncertainty or feasibility research. Promote conclusions into requirements, architecture, or an ADR only after evidence supports them.
+- Use a spike document for bounded uncertainty or feasibility research. Promote conclusions into the requirements or architecture in `docs/DESIGN.md`, or into an ADR, only after evidence supports them.
 - Recheck `git diff` for generated files, logs, server saves, Workshop artifacts, private configuration, and accidental Project Zomboid/third-party assets before committing.

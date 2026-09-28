@@ -133,7 +133,7 @@ if [[ -f workshop.txt ]]; then
   done < <(text workshop.txt | sed -n 's/^description=//p' | grep -oE '\bv[0-9]+\.[0-9]+\.[0-9]+\b' | sort -u)
 fi
 
-# Runtime build stamps (see docs/ARCHITECTURE.md): BUILD_VERSION = "x.y.z",
+# Runtime build stamps (see docs/DESIGN.md): BUILD_VERSION = "x.y.z",
 # buildVersion = "x.y.z", and "Loaded vx.y.z" load banners must match VERSION.
 if [[ -d "$RUNTIME_LUA" ]]; then
   while read -r stamp; do

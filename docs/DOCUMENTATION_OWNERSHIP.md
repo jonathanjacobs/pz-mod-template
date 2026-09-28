@@ -17,6 +17,7 @@ This file defines where mutable project information belongs so the repository do
 | Policy and provenance | [`PZ_MODDING_POLICY.md`](PZ_MODDING_POLICY.md), [`../COMPLIANCE.md`](../COMPLIANCE.md), [`../THIRD_PARTY_NOTICES.md`](../THIRD_PARTY_NOTICES.md), and [`../ASSET_LICENSE.md`](../ASSET_LICENSE.md) |
 | External reference links (wiki, API docs, community) | [`RESEARCH_LINKS.md`](RESEARCH_LINKS.md) |
 | Test-cycle automation | [`../scripts/README.md`](../scripts/README.md) |
+| Package validation | [`../tools/validate-package.sh`](../tools/validate-package.sh), documented in [`../tools/README.md`](../tools/README.md) |
 
 ## Duplication rule
 

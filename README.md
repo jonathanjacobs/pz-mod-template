@@ -32,6 +32,7 @@ If a project is short-lived or exploratory, most of this can be ignored or delet
 - `docs/DOCUMENTATION_OWNERSHIP.md` — authoritative document map and update rules.
 - `docs/REQUIREMENTS.md` — normative behavior.
 - `docs/ARCHITECTURE.md` — implementation design.
+- `tools/validate-package.sh`, `.github/workflows/validate-package.yml` — package and version-drift validation, run locally and in CI; see `tools/README.md`.
 
 ### Grows with the project — start as a stub, fill in as work happens
 
@@ -53,7 +54,7 @@ If a project is short-lived or exploratory, most of this can be ignored or delet
 - `docs/RESEARCH_LINKS.md` — external reference links, if tracking them helps.
 - `scripts/` — test-cycle automation; see `scripts/README.md`.
 - `Logs/`, `decompiled/`, `research-source/` — gitignored working directories for test logs, decompiled engine source, and external research material; see each folder's README.
-- `tools/` — shared tools, only if something is genuinely reusable across the repository.
+- `tools/` — other shared tools, only if something is genuinely reusable across the repository.
 
 ## Documentation map
 

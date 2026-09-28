@@ -8,6 +8,8 @@ Format: newest release first, each as `## [x.y.z] - YYYY-MM-DD` with `Added`, `C
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-09-28
+
 ### Added
 
 - `tools/validate-package.sh` and a `Validate Package` GitHub Actions workflow that check package layout, `mod.info` identity and version, version drift across public text and runtime Lua, sandbox-option translations, package hygiene, and artwork.

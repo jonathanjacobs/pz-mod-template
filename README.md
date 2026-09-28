@@ -3,7 +3,7 @@
 Starter repository for an independent Project Zomboid mod. Use this repository as a Git template, then replace the `TBD` values and remove any scaffolding that has no job in the new project.
 
 Status: **Template / not a deployable mod**  
-Template version: **v0.1.0**  
+Template version: **v0.2.0**  
 Target baseline: **Project Zomboid Build 42 (confirm the exact version per project)**
 
 ## Why this template looks the way it does

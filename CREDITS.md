@@ -14,6 +14,10 @@ List every distributed non-code asset — artwork, UI elements, icons, preview a
 
 Do not extract or redistribute Project Zomboid assets unless the right to do so has been explicitly verified.
 
+## Project template
+
+This project was created from [pz-mod-template](https://github.com/jonathanjacobs/pz-mod-template), Copyright 2026 Jonathan Jacobs, licensed under the Apache License, Version 2.0. Its attribution notice is the pz-mod-template block in [`NOTICE`](NOTICE); Apache 2.0 requires that block to stay in the `NOTICE` file of anything redistributed from this repository, including the Workshop package.
+
 ## Third-party material
 
 Add a record for each piece of third-party code, art, audio, models, text, data, or tools that the mod distributes:

@@ -8,6 +8,11 @@ Format: newest release first, each as `## [x.y.z] - YYYY-MM-DD` with `Added`, `C
 
 ## [Unreleased]
 
+### Added
+
+- A pz-mod-template attribution block in `NOTICE` (Copyright 2026 Jonathan Jacobs), which Apache 2.0 requires derived mods to keep in redistributions, with setup instructions in the README, `CREDITS.md`, and `AGENTS.md`, and a validator warning if it goes missing.
+- An optional "Built with pz-mod-template" credit line in the Workshop description template and the suggested README sections.
+
 ## [0.2.0] - 2026-09-28
 
 ### Added

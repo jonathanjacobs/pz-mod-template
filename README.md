@@ -17,9 +17,10 @@ The template keeps that discipline in as few documents as possible: one file per
 1. Create a repository from this template.
 2. Rename the placeholder directory at `Contents/mods/pz-mod-id/` to the chosen stable Mod ID.
 3. Replace the placeholder values in `AGENTS.md`, `VERSION`, both `Contents/mods/<mod-id>/mod.info` files (including `author=` and `versionMin=`; see [`docs/DESIGN.md`](docs/DESIGN.md#runtime-layout)), and `workshop.txt`.
-4. Replace this README with the mod's own. Suggested sections: what it does, installation and server setup (`WorkshopItems=` / `Mods=`), configuration reference with safe defaults, compatibility, uninstalling, and links to the docs.
-5. Define the first deliverable in `docs/DESIGN.md` and plan it in `docs/ROADMAP.md`.
-6. Run `bash tools/validate-package.sh`; the remaining warnings list what is still a placeholder.
+4. Replace this README with the mod's own. Suggested sections: what it does, installation and server setup (`WorkshopItems=` / `Mods=`), configuration reference with safe defaults, compatibility, uninstalling, links to the docs, and a closing credit line: "Built with [pz-mod-template](https://github.com/jonathanjacobs/pz-mod-template)."
+5. Add the mod's own name and copyright at the top of `NOTICE`, above the pz-mod-template block, and keep that block. Apache 2.0 requires it to stay in the `NOTICE` file of anything redistributed from this repository.
+6. Define the first deliverable in `docs/DESIGN.md` and plan it in `docs/ROADMAP.md`.
+7. Run `bash tools/validate-package.sh`; the remaining warnings list what is still a placeholder.
 
 ## Repository map
 
@@ -52,4 +53,4 @@ The template keeps that discipline in as few documents as possible: one file per
 
 ## License and status
 
-The template's original material is licensed under Apache-2.0. Project Zomboid code and assets remain property of their respective owners and are neither redistributed nor relicensed here. A project created from this template is an unofficial independent community mod unless documented otherwise.
+The template's original material is Copyright 2026 Jonathan Jacobs and licensed under Apache-2.0; see [`NOTICE`](NOTICE). Project Zomboid code and assets remain property of their respective owners and are neither redistributed nor relicensed here. A project created from this template is an unofficial independent community mod unless documented otherwise.

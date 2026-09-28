@@ -49,6 +49,7 @@ Keep this section short and current. Record what an agent starting cold must kno
 - Preserve server authority for shared multiplayer state; explicitly document any client-only behavior.
 - Avoid patching Project Zomboid Java/core files for ordinary Workshop distribution.
 - Do not copy third-party mod code or artwork without verified permission. Record any permitted material, and the origin of every distributed asset, in `CREDITS.md` before distribution.
+- Keep the pz-mod-template attribution block in `NOTICE`. Add this project's own name and copyright above it; do not remove or reword it, because Apache 2.0 requires it in every redistribution.
 - Keep diagnostics off or low-volume by default; enable verbose logging only for focused evidence windows.
 - Do not claim compatibility, performance, or release readiness beyond collected evidence.
 - Keep the deployable mod tree under `Contents/mods/<mod-id>/`; do not package source-control metadata, saves, logs, private configuration, decompiled source, or extracted game assets.

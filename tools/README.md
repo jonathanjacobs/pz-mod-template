@@ -19,6 +19,7 @@ It always checks:
 - version drift: bold `**vX.Y.Z**` labels in `README.md`, `[b]Version:[/b]` in `workshop-description.bbcode`, `vX.Y.Z` in the `workshop.txt` description, and runtime Lua build stamps (`BUILD_VERSION = "X.Y.Z"`, `buildVersion = "X.Y.Z"`, `Loaded vX.Y.Z`) must all match `VERSION`;
 - every sandbox option has a `translation =` line with an EN `Sandbox_<key>` label (JSON or `Sandbox_EN.txt`), and every sandbox page has a label;
 - no logs, backups, archives, `.env` files, or Java sources/classes inside the package;
+- `NOTICE` still carries the pz-mod-template attribution block (a warning, never an error);
 - `[center]` and `[br]` in the Workshop description, which Steam does not render;
 - PNG identity of any artwork present, and `preview.png` at 256×256 and at most 1000 KB.
 

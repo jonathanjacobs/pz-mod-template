@@ -60,6 +60,15 @@ if [[ -f workshop.txt ]]; then
   [[ -n "$WORKSHOP_ID" ]] && PUBLISHING=1
 fi
 
+# Apache 2.0 section 4(d) requires the template's NOTICE attribution to be
+# carried in redistributions. Warn only: this is a reminder, not a gate.
+if [[ ! -f NOTICE ]]; then
+  warn "NOTICE is missing; it must carry the pz-mod-template attribution block"
+elif ! text NOTICE | grep -Fq "Copyright 2026 Jonathan Jacobs" \
+     || ! text NOTICE | grep -Fq "github.com/jonathanjacobs/pz-mod-template"; then
+  warn "NOTICE no longer carries the pz-mod-template attribution block (see CREDITS.md)"
+fi
+
 # ---------------------------------------------------------------------------
 # Layout: one authoritative runtime tree
 # ---------------------------------------------------------------------------

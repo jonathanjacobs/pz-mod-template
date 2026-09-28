@@ -15,6 +15,7 @@ This file defines where mutable project information belongs so the repository do
 | Public Workshop text | [`../workshop-description.bbcode`](../workshop-description.bbcode) and [`../workshop.txt`](../workshop.txt) |
 | Modding-policy rules | [`PZ_MODDING_POLICY.md`](PZ_MODDING_POLICY.md) |
 | Asset and third-party provenance | [`../CREDITS.md`](../CREDITS.md) |
+| License and attribution notices | [`../LICENSE`](../LICENSE) and [`../NOTICE`](../NOTICE) |
 | External reference links and mods studied for ideas | [`RESEARCH_LINKS.md`](RESEARCH_LINKS.md) |
 | Agent working rules and current development context | [`../AGENTS.md`](../AGENTS.md) |
 | Package validation | [`../tools/validate-package.sh`](../tools/validate-package.sh), documented in [`../tools/README.md`](../tools/README.md) |

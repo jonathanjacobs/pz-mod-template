@@ -16,7 +16,7 @@ Tick an item only where recorded evidence supports it; evidence lives in [`VALID
 - [ ] Multiplayer authority and save/load behavior were tested wherever the public text claims them.
 - [ ] No known high-severity save, world, player, client, or server defect is being shipped silently.
 - [ ] Public claims (status, compatibility, "tested with", configuration) match the recorded evidence.
-- [ ] Every distributed asset and any third-party material is recorded in [`../CREDITS.md`](../CREDITS.md), and the [modding-policy checks](PZ_MODDING_POLICY.md#release-checks) are done.
+- [ ] Every distributed asset and any third-party material is recorded in [`../CREDITS.md`](../CREDITS.md), `NOTICE` still carries the pz-mod-template block, and the [modding-policy checks](PZ_MODDING_POLICY.md#release-checks) are done.
 - [ ] Rollback below is still accurate for this release.
 
 A **stable** release (`1.0.0` or later) additionally needs server and client logs from normal play showing the core behavior with no recurring error from this mod.

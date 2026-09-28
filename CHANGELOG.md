@@ -22,6 +22,18 @@ Every minor or major release has an `Upgrading` subsection, even when it only sa
 
 ## [Unreleased]
 
+## [0.7.0] - 2026-09-28
+
+### Added
+
+- `docs/README.md`, an index of every document and folder in `docs/`, grouped by what it is used for, with the question each one answers.
+- A rule in `AGENTS.md` to keep each folder's README current in the same commit that adds, removes, or renames something in that folder. It names the README for each folder: `docs/`, `tools/`, `.github/workflows/`, `.githooks/`, `.claude/`, the ADR and spike indexes, and the root repository map.
+- Warnings in `tools/validate-package.sh` when a file or folder in `docs/` is missing from `docs/README.md`, or when that index links to something that does not exist.
+
+### Upgrading
+
+Optional; nothing breaks without it. Copy `docs/README.md` and remove the rows for documents the mod has deleted, add the README rule to "Verification expectations" in `AGENTS.md`, and take the "Documentation index" section of `tools/validate-package.sh`.
+
 ## [0.6.0] - 2026-09-28
 
 ### Changed

@@ -7,7 +7,8 @@
 # Checks fall into two tiers:
 #   - always: package layout, mod.info identity/version, version drift across
 #     README / Workshop text / runtime Lua, sandbox-option translations,
-#     package hygiene, and artwork dimensions for artwork that exists;
+#     package hygiene, the docs/README.md index (warnings only), and artwork
+#     dimensions for artwork that exists;
 #   - once publishing (workshop.txt has a numeric id=): required artwork and
 #     no leftover [PLACEHOLDER] text in the Workshop description.
 #
@@ -197,6 +198,25 @@ while read -r bad; do
   fail "non-runtime file in the package: $bad"
 done < <(find "$MOD_ROOT" -type f \( -name '*.log' -o -name '*.bak' -o -name '*.tmp' -o -name '*.zip' -o -name '*.7z' \
            -o -name '.env*' -o -name 'server-console*.txt' -o -path '*/DebugLog*' -o -name '*.java' -o -name '*.class' \) 2>/dev/null)
+
+# ---------------------------------------------------------------------------
+# Documentation index
+# ---------------------------------------------------------------------------
+
+# docs/README.md lists every file and folder in docs/, and AGENTS.md asks for it
+# to be updated with each addition, removal, or rename. Warn only.
+if [[ -f docs/README.md ]]; then
+  docs_index="$(text docs/README.md)"
+  for entry in docs/*; do
+    name="$(basename "$entry")"
+    [[ "$name" == "README.md" ]] && continue
+    [[ -d "$entry" ]] && name="$name/"
+    grep -Fq "]($name" <<<"$docs_index" || warn "docs/README.md does not list docs/$name"
+  done
+  while read -r target; do
+    [[ -e "docs/$target" ]] || warn "docs/README.md links to $target, which does not exist"
+  done < <(grep -oE '\]\([^)#:]+' <<<"$docs_index" | sed 's/^](//')
+fi
 
 # ---------------------------------------------------------------------------
 # Artwork

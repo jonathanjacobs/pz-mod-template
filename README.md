@@ -3,7 +3,7 @@
 Starter repository for an independent Project Zomboid mod. Use this repository as a Git template, then replace the `TBD` values and remove any scaffolding that has no job in the new project.
 
 Status: **Template / not a deployable mod**  
-Template version: **v0.6.0**  
+Template version: **v0.7.0**  
 Target baseline: **Project Zomboid Build 42 (confirm the exact version per project)**
 
 ## Why this template looks the way it does
@@ -40,7 +40,7 @@ In Claude Code, run `/adopt` to be asked the questions behind these steps one st
 - `LICENSE`, `NOTICE` — licensing.
 - `docs/PZ_MODDING_POLICY.md`, `CREDITS.md` — modding-policy rules and asset/third-party provenance, which apply from the first commit, not just at release.
 - `docs/PRIVATE_DATA.md` — server, player, and credential details that never enter the repository or its GitHub pages, and what to do if one does.
-- `docs/DOCUMENTATION_OWNERSHIP.md` — which document owns which fact.
+- `docs/README.md`, `docs/DOCUMENTATION_OWNERSHIP.md` — an index of every document in `docs/`, and which document owns which fact.
 - `docs/DESIGN.md` — requirements, compatibility contracts, and architecture.
 - `docs/ROADMAP.md` — milestones and current work.
 - `docs/TESTING.md` — repeatable test procedure.

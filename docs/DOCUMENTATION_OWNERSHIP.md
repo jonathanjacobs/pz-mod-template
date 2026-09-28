@@ -6,6 +6,7 @@ This file defines where mutable project information belongs so the repository do
 
 | Information | Canonical source |
 | --- | --- |
+| Index of the documents in `docs/` | [`README.md`](README.md); it lists files, and this table decides where a fact belongs |
 | Public overview, installation, configuration reference, and release identity | [`../README.md`](../README.md), [`../VERSION`](../VERSION), and [`../CHANGELOG.md`](../CHANGELOG.md) |
 | Normative behavior (requirements) and implementation design (architecture) | [`DESIGN.md`](DESIGN.md), with durable decisions in [`adr/`](adr/) |
 | Names that saves, server settings, or other mods depend on | Compatibility contracts in [`DESIGN.md`](DESIGN.md#compatibility-contracts); what an update requires of players and operators goes in `Upgrading` notes in [`../CHANGELOG.md`](../CHANGELOG.md) |

@@ -114,7 +114,7 @@ Write `unresolved` where you cannot answer, and do not ship that item until the 
 - Replace the "Using this template" section of `AGENTS.md` with the "Relationship to pz-mod-template" section it provides.
 - In `CHANGELOG.md`, delete "How the template is versioned" and the template's entries, and start the mod's own history with `## [Unreleased]`.
 - Replace `README.md` with the mod's own, using the sections suggested in the template README's step 4.
-- Delete this document and `.claude/commands/adopt.md` once setup is done, and remove their mentions from `AGENTS.md`, `README.md`, and [`DOCUMENTATION_OWNERSHIP.md`](DOCUMENTATION_OWNERSHIP.md). Template upgrades later come from the template's `CHANGELOG.md`, not from this document.
+- Delete this document and `.claude/commands/adopt.md` once setup is done, and remove their mentions from `AGENTS.md`, the root `README.md`, this folder's index in [`README.md`](README.md), and [`DOCUMENTATION_OWNERSHIP.md`](DOCUMENTATION_OWNERSHIP.md). Template upgrades later come from the template's `CHANGELOG.md`, not from this document.
 - Run `bash tools/validate-package.sh`; each remaining warning names something still a placeholder.
 
 A mod that deletes half the optional folders on its first day has used the template as intended.

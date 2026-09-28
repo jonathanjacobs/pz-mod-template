@@ -51,7 +51,7 @@ This mod was created from [pz-mod-template](https://github.com/jonathanjacobs/pz
 - Supported Project Zomboid build: `TBD`
 - Primary multiplayer target: `TBD`
 - Current development branch/release state: `TBD`
-- Template version: `v0.6.0` (the pz-mod-template release this repository's files match; update it after applying a template upgrade)
+- Template version: `v0.7.0` (the pz-mod-template release this repository's files match; update it after applying a template upgrade)
 
 ## Current development context
 
@@ -83,6 +83,7 @@ Keep this section short and current. Record what an agent starting cold must kno
 - When reporting work, name each check as passed, failed, or skipped, including checks a script skipped on its own and in-game tests that were not run. State a skipped or inconclusive check as plainly as a passed one; it is never a pass.
 - Keep `VERSION`, the `modversion=` line in every `mod.info`, and any version reference in `README.md` aligned on every bump. Grep the repository for the previous version string rather than relying on memory of "the usual few spots" — a check that only covers some of the locations will eventually miss one and let them drift.
 - If `tools/` has test-cycle scripts (see "Local files and automation" in `docs/TESTING.md`), use them for the mod-deploy and log-capture steps around a test run rather than repeating them by hand. Test logs, decompiled source, and research material live in local folders outside the repository; read them only where the user has granted access, and never copy them in.
+- Keep the README files that index a folder current, in the same commit as the change. When a file or folder is added, removed, or renamed, update the README that lists it: `docs/README.md` for documents in `docs/`, `tools/README.md` for scripts, `.github/workflows/README.md` for workflows and job names, `.githooks/README.md` for hooks, `.claude/README.md` for Claude Code commands, the index tables in `docs/adr/README.md` and `docs/spikes/README.md` for each ADR and spike and its status, and the repository map in the root `README.md` where there is one. Give a new folder with more than one file a short README saying what it holds. `bash tools/validate-package.sh` warns when a file or folder in `docs/` is missing from `docs/README.md`, or when that index links to something that no longer exists.
 - For runtime changes, update `docs/TESTING.md` before or with the implementation; add an entry to `docs/VALIDATION_HISTORY.md` only after a real test occurs.
 - Use a spike document for bounded uncertainty or feasibility research. Promote conclusions into the requirements or architecture in `docs/DESIGN.md`, or into an ADR, only after evidence supports them.
 - Recheck `git diff` for generated files, logs, server saves, Workshop artifacts, private configuration, and accidental Project Zomboid/third-party assets before committing.

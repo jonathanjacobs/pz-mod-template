@@ -21,6 +21,7 @@ It always checks:
 - no logs, backups, archives, `.env` files, or Java sources/classes inside the package;
 - `NOTICE` still carries the pz-mod-template attribution block (a warning, never an error);
 - `[center]` and `[br]` in the Workshop description, which Steam does not render;
+- every file and folder in `docs/` listed in `docs/README.md`, and every link in that index pointing at something that exists (warnings, never errors);
 - PNG identity of any artwork present, and `preview.png` at 256×256 and at most 1000 KB.
 
 Once `workshop.txt` has a numeric `id=`, it also requires `preview.png` and the `poster=`/`icon=` files named in `42/mod.info`, and rejects leftover `[PLACEHOLDER]` text in the Workshop description.

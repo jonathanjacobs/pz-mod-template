@@ -6,6 +6,8 @@ Saves/
 Server/
 Workshop/
 *.log
+DebugLog*/
+server-console*.txt
 
 # Local and editor files
 .DS_Store
@@ -18,6 +20,7 @@ Thumbs.db
 dist/
 exports/
 *.zip
+*.7z
 *.bak
 *.tmp
 workshop-staging/

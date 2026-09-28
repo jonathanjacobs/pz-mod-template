@@ -24,7 +24,7 @@ This repository is the starter workspace for a Project Zomboid mod. Before imple
    - Workshop publication: `docs/STEAM_WORKSHOP.md`;
    - release gate: `docs/RELEASE_CHECKLIST.md`;
    - external reference links: `docs/RESEARCH_LINKS.md`.
-4. Treat reproducible tests and live Project Zomboid logs as stronger evidence than remembered API behavior or prior chat assertions.
+4. Treat reproducible tests and live Project Zomboid logs as stronger evidence than remembered API behavior or prior chat assertions. Before interpreting any test or log, confirm the client and server ran the same package (see the build-stamp convention in `docs/ARCHITECTURE.md`); duplicate local and Workshop copies with the same Mod ID can load mixed Lua and sandbox-option versions.
 
 ## Project facts — complete before implementation
 
@@ -34,6 +34,12 @@ This repository is the starter workspace for a Project Zomboid mod. Before imple
 - Supported Project Zomboid build: `TBD`
 - Primary multiplayer target: `TBD`
 - Current development branch/release state: `TBD`
+
+## Current development context
+
+Keep this section short and current. Record what an agent starting cold must know that the code does not show: which branches are live and what each is for, which behavior has evidence and which does not yet, and any environment trap that has already produced a misleading result. Do not represent unproven behavior as proven here.
+
+- `TBD`
 
 ## Engineering boundaries
 

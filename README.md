@@ -16,7 +16,7 @@ If a project is short-lived or exploratory, most of this can be ignored or delet
 
 1. Create a repository from this template.
 2. Rename the placeholder directory at `Contents/mods/pz-mod-id/` to the chosen stable Mod ID.
-3. Replace the placeholder values in `AGENTS.md`, `VERSION`, `Contents/mods/<mod-id>/mod.info`, and the core project docs.
+3. Replace the placeholder values in `AGENTS.md`, `VERSION`, both `Contents/mods/<mod-id>/mod.info` files (including `author=` and `versionMin=`; see [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md#runtime-layout)), and the core project docs.
 4. Define the first deliverable in `docs/REQUIREMENTS.md` and plan it in `docs/ROADMAP.md`.
 5. Remove unused optional scaffolding rather than maintaining empty paperwork.
 

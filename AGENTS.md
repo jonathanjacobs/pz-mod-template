@@ -51,7 +51,7 @@ This repository is the starter workspace for a Project Zomboid mod. Before imple
 ## Verification expectations
 
 - When package structure, `mod.info`, sandbox options, translations, or required Lua modules change, run the applicable validation workflow before claiming success.
-- Keep `VERSION`, every applicable `mod.info` version, and any version reference in `README.md` aligned on every bump. Grep the repository for the previous version string rather than relying on memory of "the usual few spots" — a check that only covers some of the locations will eventually miss one and let them drift.
+- Keep `VERSION`, the `modversion=` line in every `mod.info`, and any version reference in `README.md` aligned on every bump. Grep the repository for the previous version string rather than relying on memory of "the usual few spots" — a check that only covers some of the locations will eventually miss one and let them drift.
 - If this repository has `scripts/` test-cycle automation (see `scripts/README.md`), use it for the mod-deploy and log-capture steps around a test run rather than repeating them by hand.
 - For runtime changes, update `docs/TESTING.md` before or with the implementation; add an entry to `docs/VALIDATION_HISTORY.md` only after a real test occurs.
 - Use a spike document for bounded uncertainty or feasibility research. Promote conclusions into requirements, architecture, or an ADR only after evidence supports them.

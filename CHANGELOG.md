@@ -8,6 +8,10 @@ Format: newest release first, each as `## [x.y.z] - YYYY-MM-DD` with `Added`, `C
 
 ## [Unreleased]
 
+### Added
+
+- `CLAUDE.md`, which imports `AGENTS.md` so Claude Code reads the same agent instructions as other coding agents.
+
 ## [0.2.1] - 2026-09-28
 
 ### Added

@@ -17,7 +17,7 @@ This file defines where mutable project information belongs so the repository do
 | Asset and third-party provenance | [`../CREDITS.md`](../CREDITS.md) |
 | License and attribution notices | [`../LICENSE`](../LICENSE) and [`../NOTICE`](../NOTICE) |
 | External reference links and mods studied for ideas | [`RESEARCH_LINKS.md`](RESEARCH_LINKS.md) |
-| Agent working rules and current development context | [`../AGENTS.md`](../AGENTS.md) |
+| Agent working rules and current development context | [`../AGENTS.md`](../AGENTS.md) (imported by [`../CLAUDE.md`](../CLAUDE.md), which holds no rules of its own) |
 | Package validation | [`../tools/validate-package.sh`](../tools/validate-package.sh), documented in [`../tools/README.md`](../tools/README.md) |
 | Test-cycle automation | [`../scripts/README.md`](../scripts/README.md) |
 

@@ -26,7 +26,7 @@ The template keeps that discipline in as few documents as possible: one file per
 
 ### Core — keep from day one
 
-- `AGENTS.md` — development handoff and working rules.
+- `AGENTS.md` — development handoff and working rules. `CLAUDE.md` imports it for Claude Code, so both tools read the same rules.
 - `Contents/mods/` — deployable Project Zomboid mod package.
 - `VERSION`, `CHANGELOG.md` — release identity.
 - `LICENSE`, `NOTICE` — licensing.

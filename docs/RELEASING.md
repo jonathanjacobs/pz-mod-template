@@ -18,9 +18,22 @@ Tick an item only where recorded evidence supports it; evidence lives in [`VALID
 - [ ] No known high-severity save, world, player, client, or server defect is being shipped silently.
 - [ ] Public claims (status, compatibility, "tested with", configuration) match the recorded evidence.
 - [ ] Every distributed asset and any third-party material is recorded in [`../CREDITS.md`](../CREDITS.md), `NOTICE` still carries the pz-mod-template block, and the [modding-policy checks](PZ_MODDING_POLICY.md#release-checks) are done.
+- [ ] Every change to a [compatibility contract](DESIGN.md#compatibility-contracts) since the last release is in that list and in an `Upgrading` subsection of `CHANGELOG.md` that says what server operators and players must do, and the version number follows the rule below.
 - [ ] Rollback below is still accurate for this release.
 
 A **stable** release (`1.0.0` or later) additionally needs server and client logs from normal play showing the core behavior with no recurring error from this mod.
+
+## Choosing the version number
+
+Choose the increment by what an update does to people already running the mod:
+
+| Increment | When | Effect on existing worlds and servers |
+| --- | --- | --- |
+| Major (`X.0.0`) | A [compatibility contract](DESIGN.md#compatibility-contracts) is renamed, removed, or changes meaning or default, or players or server operators must act | Something breaks or changes unless they follow the `Upgrading` note |
+| Minor (`x.Y.0`) | New features, sandbox options, or other contracts, with existing behavior and defaults unchanged | Existing worlds and settings keep working as before |
+| Patch (`x.y.Z`) | Fixes that change no contract | Existing worlds and settings keep working, now without the bug |
+
+Below `1.0.0` the mod is still settling, and a minor release may carry a breaking change; its `Upgrading` note must still say so and what to do. Keep breaking changes rare either way: every one costs every server running the mod.
 
 Watch these during normal play rather than staging tests for them, record anything notable in [`VALIDATION_HISTORY.md`](VALIDATION_HISTORY.md), and treat a real problem as a blocker for the next release: joins, disconnects, deaths, and respawns leaving stale state; optional presentation (notifications, UI) missing or noisy; CPU cost or log volume becoming a problem for the server.
 

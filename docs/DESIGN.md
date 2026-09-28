@@ -24,6 +24,26 @@ Add numbered, testable requirements (`R1`, `R2`, …) so tests, commits, and iss
 
 - `R1` — `TBD`
 
+### Compatibility contracts
+
+Some names outlive the code that defines them, because something outside the current build stores or calls them. Changing one breaks existing worlds, server settings, or other mods even when the new code is correct. List each one here as it is introduced, so a later change can be checked against the list.
+
+| Kind | What depends on it |
+| --- | --- |
+| Mod ID | Server `Mods=` lines, saved worlds' mod lists, and other mods that declare it in `require=`. A changed ID is a different mod |
+| Sandbox option names | Server settings files and saved worlds store values by name; a renamed option loses the value that was set |
+| Sandbox option defaults | New worlds, and any setup that never set the option, get the new behavior without being told |
+| ModData keys and saved-data layout | Data already saved in worlds and player files; a renamed key orphans it |
+| Client/server command module and command names | A client and server on different mod versions during an update, and any other mod that sends or listens for them |
+| Item, recipe, and other script full types (`Module.Name`) | Items already in saved inventories and containers, and other mods' recipes and distributions |
+| Lua module paths other mods `require` | Add-ons and compatibility patches built on this mod |
+
+| Kind | Name | Defined in | Since version |
+| --- | --- | --- | --- |
+| Mod ID | `TBD` | `Contents/mods/<mod-id>/mod.info` | `TBD` |
+
+A change to a listed name follows the rules in `AGENTS.md`: only on explicit request, with an `Upgrading` note in [`../CHANGELOG.md`](../CHANGELOG.md) and a version number chosen as [`RELEASING.md`](RELEASING.md#choosing-the-version-number) describes. Mark a retired name `retired in x.y.z` instead of deleting its row, so the history of what saves may still contain stays visible.
+
 ## Architecture
 
 Cover module responsibilities, Lua client/server/shared boundaries, persistence, networking, configuration, and diagnostics once a design exists. Record a decision with realistic alternatives as an ADR under [`adr/`](adr/).

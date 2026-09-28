@@ -1,6 +1,17 @@
 # Agent project handoff
 
-This repository is the starter workspace for a Project Zomboid mod. Before implementation begins, replace every `TBD` project fact below and keep this file tailored to the resulting mod.
+## Using this template
+
+This repository is the starter workspace for a Project Zomboid mod. This section applies only while a mod is being set up from it. Every section after this one applies to ongoing work and stays.
+
+- Set the mod up by running `/adopt` in Claude Code, or by working through `docs/ADOPTION_INTERVIEW.md`. Both fill in the `TBD` project facts below and remove scaffolding the mod will not use. The same document covers bringing an existing mod closer to the template.
+- When setup is finished, replace this whole section with the section below, and keep this file tailored to the mod from then on.
+
+```markdown
+## Relationship to pz-mod-template
+
+This mod was created from [pz-mod-template](https://github.com/jonathanjacobs/pz-mod-template); "Template version" under Project facts records the template release its files match. To take a later template release, read the `Upgrading` notes for each newer version in the template's `CHANGELOG.md`, apply the ones that fit this mod, and update the recorded version. Do not add a template file only to match the template's layout. When work here turns up a problem or lesson that would apply to any mod built from the template, open an issue on the template repository with the evidence (what happened, and the commit, log excerpt, or test that shows it), written in general terms and without this mod's private details.
+```
 
 ## Privacy boundary
 
@@ -27,7 +38,9 @@ This repository is the starter workspace for a Project Zomboid mod. Before imple
    - rollback: `docs/RELEASING.md`;
    - asset and third-party provenance: `CREDITS.md`;
    - private details kept out of the repository, and leak response: `docs/PRIVATE_DATA.md`;
-   - external reference links: `docs/RESEARCH_LINKS.md`.
+   - external reference links: `docs/RESEARCH_LINKS.md`;
+   - names that saves, server settings, or other mods depend on: Compatibility contracts in `docs/DESIGN.md`;
+   - setting up from the template: `docs/ADOPTION_INTERVIEW.md`.
 4. Treat reproducible tests and live Project Zomboid logs as stronger evidence than remembered API behavior or prior chat assertions. Before interpreting any test or log, confirm the client and server ran the same package (see the build-stamp convention in `docs/DESIGN.md`); duplicate local and Workshop copies with the same Mod ID can load mixed Lua and sandbox-option versions.
 
 ## Project facts — complete before implementation
@@ -38,6 +51,7 @@ This repository is the starter workspace for a Project Zomboid mod. Before imple
 - Supported Project Zomboid build: `TBD`
 - Primary multiplayer target: `TBD`
 - Current development branch/release state: `TBD`
+- Template version: `v0.4.0` (the pz-mod-template release this repository's files match; update it after applying a template upgrade)
 
 ## Current development context
 
@@ -49,6 +63,8 @@ Keep this section short and current. Record what an agent starting cold must kno
 
 - Target only the Project Zomboid build(s) recorded in `VERSION`, `README.md`, and the canonical project docs.
 - Preserve server authority for shared multiplayer state; explicitly document any client-only behavior.
+- Treat compatibility contracts as fixed: the Mod ID, sandbox option names and defaults, ModData keys and the layout of saved data, client/server command module and command names, item and other script full type names, and Lua module paths other mods may `require`. The Compatibility contracts section of `docs/DESIGN.md` lists this mod's; a name of one of those kinds is a contract even before it is listed. Do not rename, remove, or change the meaning or default of one unless the task explicitly asks for it. When a task does, update that list, record what server operators and players must do in an `Upgrading` subsection of `CHANGELOG.md`, and choose the version number as `docs/RELEASING.md` describes.
+- Keep file moves and renames in separate commits from behavior changes, so each can be reviewed and reverted on its own. Moving a Lua file changes its `require` path, which can itself break a contract.
 - Avoid patching Project Zomboid Java/core files for ordinary Workshop distribution.
 - Do not copy third-party mod code or artwork without verified permission. Record any permitted material, and the origin of every distributed asset, in `CREDITS.md` before distribution.
 - Keep the pz-mod-template attribution block in `NOTICE`. Add this project's own name and copyright above it; do not remove or reword it, because Apache 2.0 requires it in every redistribution.

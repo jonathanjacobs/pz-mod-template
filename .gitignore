@@ -10,6 +10,7 @@ DebugLog*/
 server-console*.txt
 
 # Local and editor files
+.claude/settings.local.json
 .DS_Store
 Thumbs.db
 .vscode/

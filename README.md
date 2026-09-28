@@ -3,7 +3,7 @@
 Starter repository for an independent Project Zomboid mod. Use this repository as a Git template, then replace the `TBD` values and remove any scaffolding that has no job in the new project.
 
 Status: **Template / not a deployable mod**  
-Template version: **v0.3.0**  
+Template version: **v0.4.0**  
 Target baseline: **Project Zomboid Build 42 (confirm the exact version per project)**
 
 ## Why this template looks the way it does
@@ -14,6 +14,8 @@ The template keeps that discipline in as few documents as possible: one file per
 
 ## Start a new mod
 
+In Claude Code, run `/adopt` to be asked the questions behind these steps one stage at a time, with the answers written into the right files. Without it, [`docs/ADOPTION_INTERVIEW.md`](docs/ADOPTION_INTERVIEW.md) has the same questions, says which steps a given mod can skip, and covers bringing an existing mod closer to the template.
+
 1. Create a repository from this template.
 2. Rename the placeholder directory at `Contents/mods/pz-mod-id/` to the chosen stable Mod ID.
 3. Replace the placeholder values in `AGENTS.md`, `VERSION`, both `Contents/mods/<mod-id>/mod.info` files (including `author=` and `versionMin=`; see [`docs/DESIGN.md`](docs/DESIGN.md#runtime-layout)), and `workshop.txt`.
@@ -21,7 +23,12 @@ The template keeps that discipline in as few documents as possible: one file per
 5. Add the mod's own name and copyright at the top of `NOTICE`, above the pz-mod-template block, and keep that block. Apache 2.0 requires it to stay in the `NOTICE` file of anything redistributed from this repository.
 6. Define the first deliverable in `docs/DESIGN.md` and plan it in `docs/ROADMAP.md`.
 7. Turn on the pre-commit check for private details, once per clone: `git config core.hooksPath .githooks`. See [`docs/PRIVATE_DATA.md`](docs/PRIVATE_DATA.md) for what it catches.
-8. Run `bash tools/validate-package.sh`; the remaining warnings list what is still a placeholder.
+8. Replace the "Using this template" section of `AGENTS.md` with the "Relationship to pz-mod-template" section it provides, and in `CHANGELOG.md` replace the template's history with the mod's own `## [Unreleased]`.
+9. Run `bash tools/validate-package.sh`; the remaining warnings list what is still a placeholder.
+
+## Upgrading a mod created from an earlier template version
+
+`AGENTS.md` in each mod records the template version its files match. Each template release's `Upgrading` notes in [`CHANGELOG.md`](CHANGELOG.md) say whether an existing mod has to do anything; read the notes for every release after the recorded version, apply what fits, and update the recorded version. [How the template is versioned](CHANGELOG.md#how-the-template-is-versioned) explains the version numbers.
 
 ## Repository map
 
@@ -34,7 +41,7 @@ The template keeps that discipline in as few documents as possible: one file per
 - `docs/PZ_MODDING_POLICY.md`, `CREDITS.md` — modding-policy rules and asset/third-party provenance, which apply from the first commit, not just at release.
 - `docs/PRIVATE_DATA.md` — server, player, and credential details that never enter the repository or its GitHub pages, and what to do if one does.
 - `docs/DOCUMENTATION_OWNERSHIP.md` — which document owns which fact.
-- `docs/DESIGN.md` — requirements and architecture.
+- `docs/DESIGN.md` — requirements, compatibility contracts, and architecture.
 - `docs/ROADMAP.md` — milestones and current work.
 - `docs/TESTING.md` — repeatable test procedure.
 - `docs/VALIDATION_HISTORY.md` — actual test outcomes.
@@ -48,6 +55,7 @@ The template keeps that discipline in as few documents as possible: one file per
 
 ### Optional — delete freely if you don't use the workflow
 
+- `docs/ADOPTION_INTERVIEW.md`, `.claude/` — the setup questions and the `/adopt` command that asks them; delete both once the mod is set up. Delete `.claude/` and `CLAUDE.md` if the mod does not use Claude Code.
 - `docs/RESEARCH_LINKS.md` — external reference links and mods studied for ideas.
 - `.github/ISSUE_TEMPLATE/`, `.github/FUNDING.yml` — Project Zomboid-specific issue templates and optional sponsor links; the funding file is all comments until filled in.
 - `scripts/` — test-cycle automation; see `scripts/README.md`.

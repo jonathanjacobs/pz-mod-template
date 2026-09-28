@@ -3,5 +3,5 @@ name=Project Zomboid Mod Template
 description=Template placeholder. Replace all metadata before packaging.
 author=TBD
 category=features
-modversion=0.2.1
+modversion=0.2.2
 versionMin=42.0.0

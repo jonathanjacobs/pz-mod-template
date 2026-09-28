@@ -40,6 +40,6 @@ Everything in this folder is for people developing the mod. Players and server o
 | Document | Question it answers |
 | --- | --- |
 | [`RESEARCH_LINKS.md`](RESEARCH_LINKS.md) | Which external references and other mods were used for ideas? |
-| [`ADOPTION_INTERVIEW.md`](ADOPTION_INTERVIEW.md) | Which questions set up a mod from the template? Delete after setup |
+| [`ADOPTION_INTERVIEW.md`](ADOPTION_INTERVIEW.md) | Which questions set up a new mod from the template, or restructure an existing mod's repository into it? Delete after setup |
 
 Outside this folder: [`../CHANGELOG.md`](../CHANGELOG.md) records what changed in each release, [`../CREDITS.md`](../CREDITS.md) where every distributed asset came from, and [`../AGENTS.md`](../AGENTS.md) the working rules for coding agents.

@@ -22,6 +22,24 @@ Every minor or major release has an `Upgrading` subsection, even when it only sa
 
 ## [Unreleased]
 
+## [0.8.0] - 2026-09-28
+
+### Changed
+
+- New and existing mods now adopt the template the same way: create a repository with GitHub's "Use this template", then run `/adopt`. A new stage 0 in `docs/ADOPTION_INTERVIEW.md` asks whether the mod is new or an existing mod's repository being restructured, and for an existing mod, where that repository is.
+- For an existing mod, three new stages replace the old gap-scan path. E1 reads the existing repository without changing it and records its package layout, Workshop ID, version, compatibility contracts, documents, license, and tooling, and stops for a Build 41-only mod. E2 plans what is copied as is, merged, replaced, or left out, and is confirmed before anything is copied. E3 copies the package tree byte for byte, checks it by comparing Git tree IDs, runs the three checks, and records every finding as a gap without changing the package. Stages 1 to 9 then start from what E1 found.
+- A new stage 10 lands the result, by default as one pull request in the existing repository so its history, issues, and links survive, or by replacing that repository.
+- `/adopt` stops when run in a clone of pz-mod-template itself, takes `existing <path or URL>` as an argument, never writes to the existing repository before stage 10, and never pushes, opens pull requests, or renames, archives, or deletes repositories.
+- The README's setup section, `AGENTS.md`, and the folder indexes describe both paths.
+
+### Removed
+
+- The "Existing mods" gap-scan table and one-gap-at-a-time procedure in `docs/ADOPTION_INTERVIEW.md`.
+
+### Upgrading
+
+Optional; nothing breaks without it. A mod already set up needs none of this. To restructure an existing mod with the new path, start from a fresh repository created with "Use this template" at this version.
+
 ## [0.7.0] - 2026-09-28
 
 ### Added

@@ -3,7 +3,7 @@
 Starter repository for an independent Project Zomboid mod. Use this repository as a Git template, then replace the `TBD` values and remove any scaffolding that has no job in the new project.
 
 Status: **Template / not a deployable mod**  
-Template version: **v0.7.0**  
+Template version: **v0.8.0**  
 Target baseline: **Project Zomboid Build 42 (confirm the exact version per project)**
 
 ## Why this template looks the way it does
@@ -12,9 +12,11 @@ The target workflow is many development sessions — often with an AI coding age
 
 The template keeps that discipline in as few documents as possible: one file per concern, each with a clear owner, and automated checks (the scripts in `tools/`) doing the work that would otherwise be a manual checklist.
 
-## Start a new mod
+## Start a new mod, or restructure an existing one
 
-In Claude Code, run `/adopt` to be asked the questions behind these steps one stage at a time, with the answers written into the right files. Without it, [`docs/ADOPTION_INTERVIEW.md`](docs/ADOPTION_INTERVIEW.md) has the same questions, says which steps a given mod can skip, and covers bringing an existing mod closer to the template.
+Both start the same way: choose **Use this template → Create a new repository** on GitHub, clone the new repository, and run `/adopt` in Claude Code. Its first question is whether this is a new mod or an existing mod's repository being restructured. For an existing mod it asks where that repository is, reads it without changing it, copies the mod's package across unchanged, and moves its documentation into the template's structure; at the end, the result lands back in the existing repository as one pull request, or replaces it. Without Claude Code, [`docs/ADOPTION_INTERVIEW.md`](docs/ADOPTION_INTERVIEW.md) has the same stages to follow by hand.
+
+For a new mod, the steps below are the same setup as a checklist.
 
 1. Create a repository from this template.
 2. Rename the placeholder directory at `Contents/mods/pz-mod-id/` to the chosen stable Mod ID.
@@ -55,7 +57,7 @@ In Claude Code, run `/adopt` to be asked the questions behind these steps one st
 
 ### Optional — delete freely if you don't use the workflow
 
-- `docs/ADOPTION_INTERVIEW.md`, `.claude/` — the setup questions and the `/adopt` command that asks them; delete both once the mod is set up. Delete `.claude/` and `CLAUDE.md` if the mod does not use Claude Code.
+- `docs/ADOPTION_INTERVIEW.md`, `.claude/` — the setup questions, for a new mod or an existing one, and the `/adopt` command that asks them; delete both once the mod is set up. Delete `.claude/` and `CLAUDE.md` if the mod does not use Claude Code.
 - `docs/RESEARCH_LINKS.md` — external reference links and mods studied for ideas.
 - `.github/ISSUE_TEMPLATE/`, `.github/pull_request_template.md`, `.github/FUNDING.yml` — Project Zomboid-specific issue templates, the questions each pull request answers, and optional sponsor links; the funding file is all comments until filled in. [`.github/workflows/README.md`](.github/workflows/README.md) lists each workflow and job.
 

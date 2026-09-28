@@ -11,7 +11,7 @@ This file defines where mutable project information belongs so the repository do
 | Normative behavior (requirements) and implementation design (architecture) | [`DESIGN.md`](DESIGN.md), with durable decisions in [`adr/`](adr/) |
 | Names that saves, server settings, or other mods depend on | Compatibility contracts in [`DESIGN.md`](DESIGN.md#compatibility-contracts); what an update requires of players and operators goes in `Upgrading` notes in [`../CHANGELOG.md`](../CHANGELOG.md) |
 | Version-number rules | Mod releases: [`RELEASING.md`](RELEASING.md#choosing-the-version-number). Template releases: [`../CHANGELOG.md`](../CHANGELOG.md#how-the-template-is-versioned) |
-| Setting up from the template | [`ADOPTION_INTERVIEW.md`](ADOPTION_INTERVIEW.md), asked by [`../.claude/commands/adopt.md`](../.claude/commands/adopt.md); delete both after setup |
+| Setting up a new mod, or restructuring an existing one, from the template | [`ADOPTION_INTERVIEW.md`](ADOPTION_INTERVIEW.md), asked by [`../.claude/commands/adopt.md`](../.claude/commands/adopt.md); delete both after setup |
 | Milestones, sequencing, and current work | [`ROADMAP.md`](ROADMAP.md) |
 | Individual defects and open design questions | GitHub Issues, cited by number elsewhere |
 | What each pull request description reports | [`../.github/pull_request_template.md`](../.github/pull_request_template.md) |

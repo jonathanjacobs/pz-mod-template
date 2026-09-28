@@ -4,7 +4,7 @@ Claude Code reads this folder when it works in the repository. Other coding agen
 
 | Path | Use |
 | --- | --- |
-| `commands/adopt.md` | The `/adopt` command, which asks the questions in [`../docs/ADOPTION_INTERVIEW.md`](../docs/ADOPTION_INTERVIEW.md) one stage at a time and writes the answers into the mod's files. Delete it with that document once setup is done. |
+| `commands/adopt.md` | The `/adopt` command, which asks the questions in [`../docs/ADOPTION_INTERVIEW.md`](../docs/ADOPTION_INTERVIEW.md) one stage at a time and writes the answers into the mod's files, for a new mod or for an existing mod's repository being restructured. Delete it with that document once setup is done. |
 
 Claude Code turns every file in `commands/` into a command named after the file, so keep notes out of that folder. A `settings.json` here applies to everyone who uses Claude Code in the repository; personal settings go in `settings.local.json`, which `.gitignore` excludes.
 

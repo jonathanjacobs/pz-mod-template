@@ -1,13 +1,15 @@
 ---
-description: Set up this mod from the template by asking the adoption interview one stage at a time
-argument-hint: "[new | existing | stage N]  (optional)"
+description: Set up a new mod, or restructure an existing mod's repository, by asking the adoption interview one stage at a time
+argument-hint: "[new | existing <path or URL> | stage <N or E1-E3>]  (optional)"
 ---
 
 Run the adoption interview in `docs/ADOPTION_INTERVIEW.md` with the user, and write their answers into the files it names.
 
-Optional argument: `$ARGUMENTS`. Treat `new` or `existing` as the path to take, and `stage N` as a request to run only that stage. When it is empty, decide the path from the repository and say which one you chose and why. A repository is an existing mod when it has its own Lua code, a Workshop ID in `workshop.txt`, or a README written for a real mod. Otherwise it is new.
+Optional argument: `$ARGUMENTS`. `new` answers stage 0 with a new mod. `existing` followed by a folder path or URL answers stage 0 with an existing mod at that location. `stage N` (or `stage E1` to `stage E3`) runs only that stage. When the argument is empty, start at stage 0.
 
 ## Before you start
+
+Run `git remote get-url origin`. If it points at `jonathanjacobs/pz-mod-template`, stop: this is the template itself, and the interview would rewrite it. Tell the user to create their own repository with "Use this template" first, as "Before you start" in the interview describes.
 
 Read `docs/ADOPTION_INTERVIEW.md`, `AGENTS.md`, and `README.md`. The interview document is the only source of questions. Do not add questions, and do not ask for anything a file already answers; show the existing answer and ask whether it still holds.
 
@@ -25,16 +27,26 @@ Before writing, show the text you propose and the file it goes into. Make each s
 
 Follow `AGENTS.md` in everything you write: American English, no hard-wrapped markdown, and no private details. Stage 8 asks about player names and server host names; if the user types one anyway, do not repeat it or write it anywhere, and point them to adding it as a pattern themselves as `docs/PRIVATE_DATA.md` describes.
 
-In stage 2, rename `Contents/mods/pz-mod-id/` with `git mv`, and keep `VERSION`, both `modversion=` lines, and any version in `workshop.txt` equal. Run `bash tools/validate-package.sh` after the stage and report its errors and warnings as they are.
+For a new mod, stage 2 renames `Contents/mods/pz-mod-id/` with `git mv` and keeps `VERSION`, both `modversion=` lines, and any version in `workshop.txt` equal. Run `bash tools/validate-package.sh` after the stage and report its errors and warnings as they are.
 
 Do not record that the mod is tested, compatible with a build, or ready for release. The interview produces no evidence of any of those.
 
 ## An existing mod
 
-Fill in the gap-scan table from `docs/ADOPTION_INTERVIEW.md` first, by reading the repository, and change no files while you do. Show the table and ask the user to correct it. Then ask which single gap to work on and run only the stage that answers it. Never rename the Mod ID, the mod folder, sandbox options, ModData keys, or Lua files to match the template.
+Follow the ground rules in the interview without exception:
+
+- The existing repository is read only. For a URL, clone it into a temporary folder outside the new repository; for a local folder, read it in place, and ask the user to run `/add-dir <path>` if access is refused. Never write to it before stage 10.
+- Nothing inside the mod's package tree changes. Copy it byte for byte at its existing path. Do not reformat, rename, re-encode, or "fix" any file in it, including `mod.info`, even when the validator reports an error there; record the error as a gap instead.
+- Never rename the Mod ID, a mod folder, a sandbox option, a ModData key, a command name, a script module, or a Lua file.
+
+In E1, show the inventory and ask the user to correct it. If the mod targets only Build 41, say so and stop. In E2, show the complete mapping plan and wait for confirmation before copying anything. In E3, commit the unchanged copies separately from the merges when the user agrees, and confirm the package tree is identical to the original, by comparing tree IDs as step 2 of E3 describes, before going on. Show both IDs. Report every finding of `check-sensitive-content.sh`, `validate-package.sh`, and `check-lua-syntax.sh` as it is.
+
+In stages 1 to 9, pre-fill each answer from what E1 found, say where it came from, and ask whether it holds. In stage 4, list every contract found in the source.
+
+In stage 10, explain both choices and let the user pick. For "land it back", show the commands with the real paths filled in and run them only when the user confirms, then show the result of the package-tree check. Never push, open a pull request, rename, archive, or delete a repository; give the user the commands or steps to do it themselves.
 
 ## Finishing
 
-Run stage 9 last. List what appears unused and delete only what the user confirms.
+Run stage 9 after stages 1 to 8, and stage 10 last for an existing mod. In stage 9, list what appears unused and delete only what the user confirms; never delete anything copied from an existing repository.
 
-End by listing the stages answered, the stages skipped and why, and every `TBD` left with the file it is in. Say that `validate-package.sh` warnings name what is still a placeholder. Do not commit unless the user asks.
+End by listing the stages answered, the stages skipped and why, every `TBD` left with the file it is in, and for an existing mod every recorded gap. Say that `validate-package.sh` warnings name what is still a placeholder. Do not commit unless the user asks.

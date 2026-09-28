@@ -53,6 +53,7 @@ If a project is short-lived or exploratory, most of this can be ignored or delet
 ### Fully optional — delete freely if you don't use the workflow
 
 - `docs/RESEARCH_LINKS.md` — external reference links, if tracking them helps.
+- `.github/ISSUE_TEMPLATE/`, `.github/FUNDING.yml` — Project Zomboid-specific issue templates and optional sponsor links; the funding file is all comments until filled in.
 - `scripts/` — test-cycle automation; see `scripts/README.md`.
 - `Logs/`, `decompiled/`, `research-source/` — gitignored working directories for test logs, decompiled engine source, and external research material; see each folder's README.
 - `tools/` — other shared tools, only if something is genuinely reusable across the repository.

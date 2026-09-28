@@ -12,6 +12,10 @@ Format: newest release first, each as `## [x.y.z] - YYYY-MM-DD` with `Added`, `C
 
 - `CLAUDE.md`, which imports `AGENTS.md` so Claude Code reads the same agent instructions as other coding agents.
 
+### Changed
+
+- The `AGENTS.md` heading is now "Agent project handoff" rather than "Codex project handoff", since more than one coding agent reads it.
+
 ## [0.2.1] - 2026-09-28
 
 ### Added

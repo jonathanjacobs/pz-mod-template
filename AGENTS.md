@@ -1,4 +1,4 @@
-# Codex project handoff
+# Agent project handoff
 
 This repository is the starter workspace for a Project Zomboid mod. Before implementation begins, replace every `TBD` project fact below and keep this file tailored to the resulting mod.
 

@@ -30,6 +30,7 @@ If a project is short-lived or exploratory, most of this can be ignored or delet
 - `LICENSE`, `NOTICE` — the template's own licensing.
 - `COMPLIANCE.md`, `docs/PZ_MODDING_POLICY.md` — modding-policy rules that apply from the first commit, not just at release.
 - `docs/DOCUMENTATION_OWNERSHIP.md` — authoritative document map and update rules.
+- `docs/README.md` — short routing page by reader (operator, contributor, tester, release maintainer).
 - `docs/REQUIREMENTS.md` — normative behavior.
 - `docs/ARCHITECTURE.md` — implementation design.
 - `tools/validate-package.sh`, `.github/workflows/validate-package.yml` — package and version-drift validation, run locally and in CI; see `tools/README.md`.

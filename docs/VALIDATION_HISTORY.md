@@ -15,7 +15,7 @@ The table is an index. When an entry needs more than a line, add a dated section
 ```markdown
 ## <YYYY-MM-DD> — <what was tested>
 
-Build `<x.y.z>` on Project Zomboid `<version>` `<revision>`; <topology: single-player, hosted, or dedicated, and player count>. Logs reviewed: <which, from what window>.
+Build `<x.y.z>` on Project Zomboid `<version>` `<revision>`; <topology: single-player, hosted, or dedicated, and player count, described by kind>. Logs reviewed: <which, from what window>.
 
 - <what was observed, with the relevant log values>
 - <…>
@@ -24,5 +24,7 @@ Result: <PASS / FAIL / PASS with conditions> for <which checks in TESTING.md>.
 
 Not covered: <what did not happen during the window or was not reviewed, so no one later reads this entry as proving it>.
 ```
+
+Entries are public. Describe servers by kind ("a rented dedicated server"), and replace IP addresses, Steam IDs, and other players' names in quoted log values with placeholders; see [`PRIVATE_DATA.md`](PRIVATE_DATA.md).
 
 For a Project Zomboid update, this entry is the compatibility checkpoint: record it before changing any "tested with" claim or `versionMin=`.

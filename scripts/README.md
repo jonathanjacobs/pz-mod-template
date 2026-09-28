@@ -17,4 +17,6 @@ If a script needs remote (for example SFTP) credentials for a dedicated test ser
 3. Have the script no-op the remote steps and only perform the local half until the real file exists with non-placeholder values.
 4. If connecting over SFTP, verify the host's key fingerprint once and record it in the secrets file; some SFTP clients refuse to connect without it.
 
+[`../tools/check-sensitive-content.sh`](../tools/check-sensitive-content.sh) fails on a tracked `.env` file and on a filled-in `*PASSWORD=` line, and the pre-commit hook stops such a commit before it is made. Scripts that print the server address or credentials while they run put them in the terminal, where they are easy to paste into an issue or a chat; print a label such as "remote test server" instead. See [`../docs/PRIVATE_DATA.md`](../docs/PRIVATE_DATA.md).
+
 Wire any script added here into [`../AGENTS.md`](../AGENTS.md), [`../docs/DOCUMENTATION_OWNERSHIP.md`](../docs/DOCUMENTATION_OWNERSHIP.md), and [`../docs/TESTING.md`](../docs/TESTING.md) so the workflow stays discoverable.

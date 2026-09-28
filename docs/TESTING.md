@@ -18,7 +18,7 @@ Keep this guide short and proportionate to a hobby mod. Logs from normal play co
 
 ## Before testing
 
-- `bash tools/validate-package.sh` passes for the build under test.
+- `bash tools/validate-package.sh` passes for the build under test, and so does `bash tools/check-lua-syntax.sh` (or the "Check Lua syntax" CI job, where no Lua 5.1 compiler is installed locally).
 - Server and clients show the same Project Zomboid `version=` / `revision=` line and the same mod build (server `CONFIG | build=`, client `SERVER_BUILD`, and no `BUILD_MISMATCH`; see the build-stamp convention in [`DESIGN.md`](DESIGN.md#build-stamp-and-version-handshake)).
 - Only one copy of the mod is installed on each machine. A local copy and a Workshop copy with the same Mod ID can load mixed Lua and sandbox-option versions, which makes every result untrustworthy.
 - Note the active sandbox settings; expected results use the active settings, not the shipped defaults.
@@ -55,6 +55,8 @@ Run a check only when that feature changes.
 1. Save the normal server and client logs around the event.
 2. Turn on the mod's diagnostics, reproduce once, then turn them off again.
 3. Collect the server console/DebugLog and the affected client's DebugLog. `TBD` — name the log prefix this mod uses.
+
+Server logs record IP addresses, Steam IDs, and player names. Keep the raw logs in the gitignored `Logs/` folder, and quote only the lines that matter, with those values replaced, in validation history, spikes, or issues ([`PRIVATE_DATA.md`](PRIVATE_DATA.md)).
 
 If an optional layer is the suspect, turn it off first using the rollback steps in [`RELEASING.md`](RELEASING.md#rollback).
 

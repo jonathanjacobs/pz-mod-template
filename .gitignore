@@ -29,7 +29,13 @@ build/
 # Never commit private or game-derived material
 .env
 .env.*
+*.env
 !*.env.example
+*.pem
+*.ppk
+id_rsa*
+id_ecdsa*
+id_ed25519*
 decompiled/*
 !decompiled/README.md
 extracted-game-assets/

@@ -8,6 +8,7 @@ This repository is the starter workspace for a Project Zomboid mod. Before imple
 - Do not add persona-identifying or personal information without an explicit request.
 - Translate permitted requirements into impersonal, repository-native technical language.
 - Apply this rule to source, docs, comments, commit messages, fixtures, logs, generated artifacts, and issue or pull-request text.
+- Never write server IP addresses or host names, Steam IDs, other players' names, server, admin, or RCON passwords, SFTP credentials, or tokens into any of those places. Describe a test environment by its kind, such as "a rented dedicated server, 3 players", and replace private values in quoted log lines with placeholders such as `<server-ip>`. Summaries of test sessions are where these details most often slip in. `docs/PRIVATE_DATA.md` has the full list, the automated check, and the steps to take if something reaches GitHub.
 
 ## Start every task here
 
@@ -25,6 +26,7 @@ This repository is the starter workspace for a Project Zomboid mod. Before imple
    - Workshop publication: `docs/RELEASING.md`, with public text in `workshop-description.bbcode`;
    - rollback: `docs/RELEASING.md`;
    - asset and third-party provenance: `CREDITS.md`;
+   - private details kept out of the repository, and leak response: `docs/PRIVATE_DATA.md`;
    - external reference links: `docs/RESEARCH_LINKS.md`.
 4. Treat reproducible tests and live Project Zomboid logs as stronger evidence than remembered API behavior or prior chat assertions. Before interpreting any test or log, confirm the client and server ran the same package (see the build-stamp convention in `docs/DESIGN.md`); duplicate local and Workshop copies with the same Mod ID can load mixed Lua and sandbox-option versions.
 
@@ -60,6 +62,8 @@ Keep this section short and current. Record what an agent starting cold must kno
 ## Verification expectations
 
 - When package structure, `mod.info`, sandbox options, translations, version strings, or required Lua modules change, run `bash tools/validate-package.sh` (the same check CI runs) before claiming success. When a regression is fixed, consider adding a guard for it to that script.
+- When Lua changes, run `bash tools/check-lua-syntax.sh`. Without a Lua 5.1 compiler installed it reports the check as skipped; say so rather than claiming the syntax was checked, and rely on the CI job of the same name.
+- Before committing, run `bash tools/check-sensitive-content.sh staged` unless the pre-commit hook is already on (`git config core.hooksPath` prints `.githooks`). Report skipped checks as plainly as passed ones.
 - Keep `VERSION`, the `modversion=` line in every `mod.info`, and any version reference in `README.md` aligned on every bump. Grep the repository for the previous version string rather than relying on memory of "the usual few spots" — a check that only covers some of the locations will eventually miss one and let them drift.
 - If this repository has `scripts/` test-cycle automation (see `scripts/README.md`), use it for the mod-deploy and log-capture steps around a test run rather than repeating them by hand.
 - For runtime changes, update `docs/TESTING.md` before or with the implementation; add an entry to `docs/VALIDATION_HISTORY.md` only after a real test occurs.

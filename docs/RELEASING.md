@@ -12,6 +12,7 @@ Permanent Steam Workshop ID: `TBD` (assigned on first upload)
 Tick an item only where recorded evidence supports it; evidence lives in [`VALIDATION_HISTORY.md`](VALIDATION_HISTORY.md). Require what protects players' saves and the mod's core behavior, and watch the rest during normal play.
 
 - [ ] `VERSION`, `CHANGELOG.md`, both `mod.info` files, the README, the Workshop text, and runtime build stamps agree — `bash tools/validate-package.sh` passes.
+- [ ] The Validate Package (package and Lua syntax) and Sensitive Content CI workflows pass on the release commit.
 - [ ] The smoke test and core behavior test in [`TESTING.md`](TESTING.md) passed on this build (normal-session logs count) and are recorded in [`VALIDATION_HISTORY.md`](VALIDATION_HISTORY.md).
 - [ ] Multiplayer authority and save/load behavior were tested wherever the public text claims them.
 - [ ] No known high-severity save, world, player, client, or server defect is being shipped silently.

@@ -4,7 +4,7 @@ Add a tool here only when it is genuinely reusable across this repository. Docum
 
 ## `validate-package.sh`
 
-Checks the deployable package and the public text that describes it. CI runs it on every push and pull request to `main` through [`../.github/workflows/validate-package.yml`](../.github/workflows/validate-package.yml); run it locally before committing a version bump, package-structure change, sandbox option, or translation.
+Checks the deployable package and the public text that describes it. CI runs it on every push and pull request to `main` as the `validate-package` job in [`../.github/workflows/validate-package.yml`](../.github/workflows/validate-package.yml); run it locally before committing a version bump, package-structure change, sandbox option, or translation.
 
 ```bash
 bash tools/validate-package.sh
@@ -26,3 +26,37 @@ It always checks:
 Once `workshop.txt` has a numeric `id=`, it also requires `preview.png` and the `poster=`/`icon=` files named in `42/mod.info`, and rejects leftover `[PLACEHOLDER]` text in the Workshop description.
 
 Add project-specific regression guards in the marked section near the end of the script. Add a guard only for a defect or design boundary that has already mattered once, and comment what it protects.
+
+## `check-lua-syntax.sh`
+
+Checks that every tracked `.lua` file parses as Lua 5.1, the language Project Zomboid's Kahlua interpreter reads, so a syntax error shows up in seconds instead of after a server start and client join. CI runs it as the "Check Lua syntax" job in [`../.github/workflows/validate-package.yml`](../.github/workflows/validate-package.yml).
+
+```bash
+bash tools/check-lua-syntax.sh
+```
+
+Prerequisites: a Lua 5.1 compiler, `luac5.1` or a `luac` that reports version 5.1 (on Debian or Ubuntu, including WSL, the `lua5.1` package). Without one the script reports the check as skipped and exits 0; `--require-compiler`, which CI passes, turns that into a failure. A file that parses can still fail at runtime, so a pass shows only that the syntax is valid Lua 5.1.
+
+## `check-sensitive-content.sh`
+
+Looks for private details that must not reach GitHub. [`../docs/PRIVATE_DATA.md`](../docs/PRIVATE_DATA.md) owns the rules and the steps to take after a leak; this section lists what the script matches.
+
+```bash
+bash tools/check-sensitive-content.sh [staged | tracked | text LABEL]
+```
+
+`staged` checks the files in the next commit and is what the pre-commit hook in [`../.githooks/`](../.githooks/) runs. `tracked`, the default, checks every tracked file. `text` checks standard input, which CI uses for pull request text and commit messages. Any finding exits non-zero. In GitHub Actions the log gives each location without the matched text.
+
+Prerequisites: bash and Git built with PCRE support, which Git for Windows and the CI runner both are.
+
+It reports:
+
+- tracked `.env`, `.env.<name>`, and `<name>.env` files, `*.pem` and `*.ppk` files, and SSH private keys (`id_rsa`, `id_ed25519`, and similar); a name ending in `.example` is allowed;
+- IPv4 addresses, except loopback (`127.x.x.x`), `0.0.0.0`, `255.255.255.255`, and the documentation ranges `192.0.2.x`, `198.51.100.x`, and `203.0.113.x`;
+- 17-digit SteamID64 values;
+- `Password=` and `RCONPassword=` lines with a value, as in a server `.ini` settings file;
+- `KEY=value` lines whose upper-case key contains `PASSWORD`, `PASSWD`, `TOKEN`, `SECRET`, or `API_KEY`, unless the value is empty, quoted empty, or a `<placeholder>`;
+- a user name and password or token inside a URL, and GitHub personal access tokens;
+- project patterns, one regular expression per line, from the `SENSITIVE_PATTERNS` environment variable (a repository secret in CI) and from the file named by `git config pzmod.sensitivePatternsFile`.
+
+A line containing `sensitive-content: allow` is skipped, for a false positive that cannot be reworded.

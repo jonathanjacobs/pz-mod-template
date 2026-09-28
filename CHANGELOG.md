@@ -8,6 +8,25 @@ Format: newest release first, each as `## [x.y.z] - YYYY-MM-DD` with `Added`, `C
 
 ## [Unreleased]
 
+## [0.3.0] - 2026-09-28
+
+### Added
+
+- `docs/PRIVATE_DATA.md`, which lists the server, player, and credential details that never enter the repository or its GitHub pages (server IP addresses and host names, Steam IDs, other players' names, server, admin, and RCON passwords, SFTP credentials, tokens), says to describe test environments by kind, and gives the steps to take after a leak. Those steps include the GitHub behavior that makes a history rewrite insufficient: old commits stay viewable at their direct URLs after a force-push until GitHub Support purges them.
+- `tools/check-sensitive-content.sh`, run by a new `Sensitive Content` workflow on tracked files, pull request text, and commit messages, and by an optional pre-commit hook in `.githooks/` (`git config core.hooksPath .githooks`). It fails on IPv4 addresses outside the loopback and documentation ranges, SteamID64 values, filled-in server password settings and `*PASSWORD=`/`*TOKEN=` lines, credentials in URLs, GitHub tokens, and tracked `.env`, `.pem`, `.ppk`, and SSH key files. Project-specific patterns such as player names go in a `SENSITIVE_PATTERNS` repository secret, and a `sensitive-content: allow` marker accepts a false positive.
+- `tools/check-lua-syntax.sh` and a "Check Lua syntax" job in the `Validate Package` workflow, which checks that every tracked `.lua` file parses as Lua 5.1 so syntax errors show up without launching the game. Locally it reports the check as skipped when no Lua 5.1 compiler is installed.
+- `.gitignore` entries for `*.env`, `*.pem`, `*.ppk`, and SSH private keys.
+
+### Changed
+
+- `AGENTS.md` names the private details to keep out, points to `docs/PRIVATE_DATA.md`, and asks agents to run both new checks and to report a skipped check as skipped.
+- The validation-history entry format, spike guidance, `docs/TESTING.md`, `scripts/README.md`, and the release checklist now point to the private-details rules where log excerpts and server details are written down.
+- Both workflows declare read-only `contents` permission and use `actions/checkout@v6`.
+
+### Upgrading a mod created from 0.2.x
+
+Copy `tools/check-sensitive-content.sh`, `tools/check-lua-syntax.sh`, `.githooks/`, `.github/workflows/sensitive-content.yml`, and `docs/PRIVATE_DATA.md`, and take the `lua-syntax` job from `.github/workflows/validate-package.yml`. Run `bash tools/check-sensitive-content.sh` once over the whole repository before turning the workflow on: anything it finds in files that are already pushed is still in Git history, and the steps in `docs/PRIVATE_DATA.md` apply. Add the `.gitattributes` line for `.githooks/*` so the hook keeps LF line endings.
+
 ## [0.2.2] - 2026-09-28
 
 ### Added

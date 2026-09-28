@@ -30,6 +30,17 @@ Both `mod.info` files carry the same `id=`, `name=`, `description=`, `author=`, 
 
 There is one authoritative runtime tree. Do not create a second root-level `42/`, `common/`, `media/`, or `mod.info` copy.
 
+## Build stamp and version handshake
+
+Recommended from the first multiplayer build. Mixed-version installs — a stale local copy beside the Workshop copy, a client that has not downloaded the update, or a server that has not restarted — are a common cause of confusing test results, and they are invisible unless the mod reports which build is running.
+
+- Define the build version once, in a shared module (for example `42/media/lua/shared/<ModName>/Version.lua` returning `{ BUILD_VERSION = "x.y.z" }`), and `require` it wherever the version is needed. Keep it equal to [`../VERSION`](../VERSION); [`../tools/validate-package.sh`](../tools/validate-package.sh) rejects any `BUILD_VERSION = "..."`, `buildVersion = "..."`, or `Loaded vX.Y.Z` literal in runtime Lua that disagrees.
+- **Server:** log the build and the effective configuration once at startup, for example `[<ModName>] CONFIG | build=x.y.z | <key settings>`.
+- **Server to client:** include `buildVersion` in the first state message each client receives.
+- **Client:** log `[<ModName>] SERVER_BUILD | x.y.z` once on receipt, and log `BUILD_MISMATCH | client=… | server=…` once if it differs from the client's own build.
+
+With this in place, confirming that everyone runs the same package is a log search rather than a guess, and it is the first step in [`TESTING.md`](TESTING.md#before-testing) and in post-deployment verification.
+
 ## Design
 
 `TBD`

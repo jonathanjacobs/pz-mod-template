@@ -19,7 +19,7 @@ Keep this guide short and proportionate to a hobby mod. Logs from normal play co
 ## Before testing
 
 - `bash tools/validate-package.sh` passes for the build under test.
-- Server and clients show the same Project Zomboid `version=` / `revision=` line and load the same mod build.
+- Server and clients show the same Project Zomboid `version=` / `revision=` line and the same mod build (server `CONFIG | build=`, client `SERVER_BUILD`, and no `BUILD_MISMATCH`; see the build-stamp convention in [`ARCHITECTURE.md`](ARCHITECTURE.md#build-stamp-and-version-handshake)).
 - Only one copy of the mod is installed on each machine. A local copy and a Workshop copy with the same Mod ID can load mixed Lua and sandbox-option versions, which makes every result untrustworthy.
 - Note the active sandbox settings; expected results use the active settings, not the shipped defaults.
 

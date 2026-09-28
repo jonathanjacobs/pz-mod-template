@@ -2,6 +2,8 @@
 
 Status: **Not relevant until preparing a release.**
 
+Do not update for: player-facing installation or configuration ([`../README.md`](../README.md)), Workshop description text ([`../workshop-description.bbcode`](../workshop-description.bbcode)), or test results ([`VALIDATION_HISTORY.md`](VALIDATION_HISTORY.md)).
+
 This document owns how a version gets from the repository to players: the release checklist, Steam Workshop publication, post-release checks, and rollback. Player-facing installation and configuration live in [`../README.md`](../README.md); public Workshop text is canonical in [`../workshop-description.bbcode`](../workshop-description.bbcode). If the mod is not published on the Workshop, delete the Workshop sections along with `workshop.txt` and `workshop-description.bbcode`.
 
 Project Zomboid Mod ID: `TBD`  

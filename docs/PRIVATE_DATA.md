@@ -1,5 +1,7 @@
 # Keeping private details out of the repository
 
+Do not update for: this mod's own player names or server host names. They go in the `SENSITIVE_PATTERNS` secret and a patterns file outside the repository, never in this file.
+
 This document owns what must never be written into the repository or its GitHub pages, the automated check that looks for it, and what to do when something gets through. Mod repositories are usually public, and modding work produces a steady stream of server logs, config files, and test notes, which are the usual route by which a private detail reaches GitHub.
 
 ## What stays out

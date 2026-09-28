@@ -3,7 +3,7 @@
 Starter repository for an independent Project Zomboid mod. Use this repository as a Git template, then replace the `TBD` values and remove any scaffolding that has no job in the new project.
 
 Status: **Template / not a deployable mod**  
-Template version: **v0.4.0**  
+Template version: **v0.5.0**  
 Target baseline: **Project Zomboid Build 42 (confirm the exact version per project)**
 
 ## Why this template looks the way it does
@@ -57,7 +57,7 @@ In Claude Code, run `/adopt` to be asked the questions behind these steps one st
 
 - `docs/ADOPTION_INTERVIEW.md`, `.claude/` — the setup questions and the `/adopt` command that asks them; delete both once the mod is set up. Delete `.claude/` and `CLAUDE.md` if the mod does not use Claude Code.
 - `docs/RESEARCH_LINKS.md` — external reference links and mods studied for ideas.
-- `.github/ISSUE_TEMPLATE/`, `.github/FUNDING.yml` — Project Zomboid-specific issue templates and optional sponsor links; the funding file is all comments until filled in.
+- `.github/ISSUE_TEMPLATE/`, `.github/pull_request_template.md`, `.github/FUNDING.yml` — Project Zomboid-specific issue templates, the questions each pull request answers, and optional sponsor links; the funding file is all comments until filled in. [`.github/workflows/README.md`](.github/workflows/README.md) lists each workflow and job.
 - `scripts/` — test-cycle automation; see `scripts/README.md`.
 - `Logs/`, `decompiled/`, `research-source/` — gitignored working directories for test logs, decompiled engine source, and external research material; see each folder's README.
 

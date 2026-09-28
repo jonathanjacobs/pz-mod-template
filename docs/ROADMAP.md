@@ -2,7 +2,9 @@
 
 Status: **Not yet planned**
 
-Track milestones, their order, known risks, and the evidence required to leave each milestone. Individual defects and design questions live in GitHub Issues; cite them here by number rather than restating them. Release criteria live in [`RELEASING.md`](RELEASING.md#release-checklist). Do not use this file as a validation log.
+Do not update for: test results ([`VALIDATION_HISTORY.md`](VALIDATION_HISTORY.md)), the details of an individual defect or question (its GitHub Issue), or release criteria ([`RELEASING.md`](RELEASING.md#release-checklist)).
+
+Track milestones, their order, known risks, and the evidence required to leave each milestone. Cite issues here by number rather than restating them.
 
 ## Current milestone
 

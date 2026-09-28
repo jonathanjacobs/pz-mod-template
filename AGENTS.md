@@ -41,7 +41,7 @@ This mod was created from [pz-mod-template](https://github.com/jonathanjacobs/pz
    - external reference links: `docs/RESEARCH_LINKS.md`;
    - names that saves, server settings, or other mods depend on: Compatibility contracts in `docs/DESIGN.md`;
    - setting up from the template: `docs/ADOPTION_INTERVIEW.md`.
-4. Treat reproducible tests and live Project Zomboid logs as stronger evidence than remembered API behavior or prior chat assertions. Before interpreting any test or log, confirm the client and server ran the same package (see the build-stamp convention in `docs/DESIGN.md`); duplicate local and Workshop copies with the same Mod ID can load mixed Lua and sandbox-option versions.
+4. Treat reproducible tests and live Project Zomboid logs as stronger evidence than remembered API behavior or prior chat assertions. A description of what a change should do, including your own summary of code you just wrote, is not evidence that it does. Before interpreting any test or log, confirm the client and server ran the same package (see the build-stamp convention in `docs/DESIGN.md`); duplicate local and Workshop copies with the same Mod ID can load mixed Lua and sandbox-option versions.
 
 ## Project facts — complete before implementation
 
@@ -51,7 +51,7 @@ This mod was created from [pz-mod-template](https://github.com/jonathanjacobs/pz
 - Supported Project Zomboid build: `TBD`
 - Primary multiplayer target: `TBD`
 - Current development branch/release state: `TBD`
-- Template version: `v0.4.0` (the pz-mod-template release this repository's files match; update it after applying a template upgrade)
+- Template version: `v0.5.0` (the pz-mod-template release this repository's files match; update it after applying a template upgrade)
 
 ## Current development context
 
@@ -79,7 +79,8 @@ Keep this section short and current. Record what an agent starting cold must kno
 
 - When package structure, `mod.info`, sandbox options, translations, version strings, or required Lua modules change, run `bash tools/validate-package.sh` (the same check CI runs) before claiming success. When a regression is fixed, consider adding a guard for it to that script.
 - When Lua changes, run `bash tools/check-lua-syntax.sh`. Without a Lua 5.1 compiler installed it reports the check as skipped; say so rather than claiming the syntax was checked, and rely on the CI job of the same name.
-- Before committing, run `bash tools/check-sensitive-content.sh staged` unless the pre-commit hook is already on (`git config core.hooksPath` prints `.githooks`). Report skipped checks as plainly as passed ones.
+- Before committing, run `bash tools/check-sensitive-content.sh staged` unless the pre-commit hook is already on (`git config core.hooksPath` prints `.githooks`).
+- When reporting work, name each check as passed, failed, or skipped, including checks a script skipped on its own and in-game tests that were not run. State a skipped or inconclusive check as plainly as a passed one; it is never a pass.
 - Keep `VERSION`, the `modversion=` line in every `mod.info`, and any version reference in `README.md` aligned on every bump. Grep the repository for the previous version string rather than relying on memory of "the usual few spots" — a check that only covers some of the locations will eventually miss one and let them drift.
 - If this repository has `scripts/` test-cycle automation (see `scripts/README.md`), use it for the mod-deploy and log-capture steps around a test run rather than repeating them by hand.
 - For runtime changes, update `docs/TESTING.md` before or with the implementation; add an entry to `docs/VALIDATION_HISTORY.md` only after a real test occurs.

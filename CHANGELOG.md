@@ -14,13 +14,33 @@ The template is released as `vX.Y.Z` git tags. The version number says what a re
 
 | Increment | Meaning for an existing mod |
 | --- | --- |
-| Minor (`0.Y.0`) before `1.0.0`, major (`X.0.0`) from `1.0.0` | May need action: a document renamed or removed, a rule reversed, or a required step added. The `Upgrading` subsection says what to do |
-| Minor (`X.Y.0`) from `1.0.0` | New optional guidance, checks, or files. Adopt them when convenient |
+| Major (`X.0.0`), from `1.0.0` | Needs action: a document renamed or removed, a rule reversed, or a required step added. The `Upgrading` subsection says what to do |
+| Minor (`X.Y.0`) | New optional guidance, checks, or files; adopt them when convenient. Before `1.0.0`, a minor release may also need action, and its `Upgrading` subsection then says so first |
 | Patch (`X.Y.Z`) | Wording, clarification, or a fix inside the template. Nothing to act on |
 
 Every minor or major release has an `Upgrading` subsection, even when it only says that nothing is required. A mod records the template version its files match under "Project facts" in `AGENTS.md`. To upgrade, read the `Upgrading` subsections of every later release, apply the ones that fit, and update that recorded version. `git diff v<recorded> v<latest>` in a clone of the template shows the exact changes.
 
 ## [Unreleased]
+
+## [0.5.0] - 2026-09-28
+
+### Added
+
+- `.github/pull_request_template.md`, which asks each pull request what was checked and what was skipped, whether it changes a compatibility contract or multiplayer authority, and whether it adds assets or third-party material.
+- `.github/workflows/README.md`, which lists each workflow and job name for branch protection, and says why no README goes directly in `.github/`: GitHub would show it on the repository's front page in place of the root README.
+- A "Do not update for" line at the top of each document in `docs/`, naming the information that looks as if it belongs there but has another home.
+- A results table in `docs/VALIDATION_HISTORY.md`: `PASS`, `PASS with conditions`, `FAIL`, `INCOMPLETE`, and `NOT RUN`, given per check. Only the first two count as release evidence.
+- A spike status table (`Open`, `GO`, `GO with conditions`, `NO-GO`, `Inconclusive`, `Superseded`), an index, and a record structure in `docs/spikes/README.md`. The structure asks for the GO and NO-GO criteria before any test runs, and the guidance asks for a NO-GO to be written up as carefully as a GO.
+- Two evidence rules in `AGENTS.md`: a description of what a change should do is not evidence that it does, and every check is reported as passed, failed, or skipped.
+
+### Changed
+
+- The template-versioning table in this file now covers an optional addition released before `1.0.0`.
+- `docs/ROADMAP.md` and `docs/VALIDATION_HISTORY.md` moved their "belongs elsewhere" sentences into the new opening line.
+
+### Upgrading
+
+Optional; nothing breaks without it. Copy `.github/pull_request_template.md` and `.github/workflows/README.md`, and take the results table from `docs/VALIDATION_HISTORY.md` and the status table and record structure from `docs/spikes/README.md`. Existing validation entries and spikes can keep their old result wording.
 
 ## [0.4.0] - 2026-09-28
 

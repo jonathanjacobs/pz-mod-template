@@ -2,6 +2,8 @@
 
 Status: **Not yet defined**
 
+Do not update for: task status or milestones ([`ROADMAP.md`](ROADMAP.md)), test results ([`VALIDATION_HISTORY.md`](VALIDATION_HISTORY.md)), or experiment narratives ([`spikes/`](spikes/)).
+
 This document has two parts with different authority. **Requirements** state what the mod must do, as players and server operators see it. **Architecture** describes how the current implementation does it. Keep them separate: an implementation detail is not a requirement until it is written into the requirements section, and a requirement does not change because the code happens to behave differently.
 
 ## Requirements

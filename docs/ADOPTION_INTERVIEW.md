@@ -1,5 +1,7 @@
 # Adoption interview
 
+Do not update for: one mod's answers, which go into the files each stage names.
+
 This document sets up a mod from the template as a series of questions, asked in order, with the file each answer goes into. Work through it alone, or run `/adopt` in Claude Code to have an agent ask the questions one stage at a time and write the answers in. It also covers bringing an existing mod closer to the template, one gap at a time. The README's "Start a new mod" list is the same setup as a checklist; this document adds the questions behind each step and says which steps a given mod can skip.
 
 Stage 1 decides which later stages apply. A small single-player mod needs stages 1 to 4, 8, and 9, and takes about twenty minutes.

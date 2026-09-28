@@ -2,6 +2,8 @@
 
 Status: **Not yet defined**
 
+Do not update for: a test that was run (record it in [`VALIDATION_HISTORY.md`](VALIDATION_HISTORY.md)), or a change in what the mod should do (change the requirements in [`DESIGN.md`](DESIGN.md#requirements) first).
+
 This document owns repeatable test procedures, not historical results. Record real outcomes in [`VALIDATION_HISTORY.md`](VALIDATION_HISTORY.md); expected behavior lives in the requirements in [`DESIGN.md`](DESIGN.md#requirements); long experimental procedures belong in [`spikes/`](spikes/).
 
 Keep this guide short and proportionate to a hobby mod. Logs from normal play count as evidence; stage a dedicated test only when normal play does not cover a change. Replace each `TBD` below with the project's own checks, and delete sections that do not apply.

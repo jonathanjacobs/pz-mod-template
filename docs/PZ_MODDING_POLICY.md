@@ -1,5 +1,7 @@
 # Project Zomboid Modding Policy compliance
 
+Do not update for: an individual asset or piece of third-party material (record it in [`../CREDITS.md`](../CREDITS.md)).
+
 This project is intended for work under The Indie Stone's current Project Zomboid Modding Policy and applicable distribution-platform rules. This document is the project's engineering and release-control policy; it does not replace the authoritative policy:
 
 - <https://projectzomboid.com/blog/modding-policy/>

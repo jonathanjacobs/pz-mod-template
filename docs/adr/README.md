@@ -1,5 +1,7 @@
 # Architecture decision records
 
+Do not update for: a routine implementation choice, or a change to an accepted decision (write a new ADR that supersedes it, and mark the old one `Superseded`).
+
 Create an ADR when a consequential technical decision has realistic alternatives and should remain understandable after the immediate implementation work is over. Do not create ADRs for routine implementation details.
 
 ## Format

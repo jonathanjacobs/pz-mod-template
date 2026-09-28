@@ -1,6 +1,8 @@
 # Documentation ownership
 
-This file defines where mutable project information belongs so the repository does not maintain competing copies of the same facts.
+Do not update for: a change inside one document. Update this file when a subject moves to a different document, or a document is added or removed.
+
+This file defines where mutable project information belongs so the repository does not maintain competing copies of the same facts. Each document in `docs/` opens with a "Do not update for" line naming the information that looks as if it belongs there but has another home.
 
 | Information | Canonical source |
 | --- | --- |
@@ -11,6 +13,7 @@ This file defines where mutable project information belongs so the repository do
 | Setting up from the template | [`ADOPTION_INTERVIEW.md`](ADOPTION_INTERVIEW.md), asked by [`../.claude/commands/adopt.md`](../.claude/commands/adopt.md); delete both after setup |
 | Milestones, sequencing, and current work | [`ROADMAP.md`](ROADMAP.md) |
 | Individual defects and open design questions | GitHub Issues, cited by number elsewhere |
+| What each pull request description reports | [`../.github/pull_request_template.md`](../.github/pull_request_template.md) |
 | Repeatable test procedure | [`TESTING.md`](TESTING.md) |
 | Actual test outcomes | [`VALIDATION_HISTORY.md`](VALIDATION_HISTORY.md) |
 | Experimental evidence | [`spikes/`](spikes/) |
@@ -22,7 +25,7 @@ This file defines where mutable project information belongs so the repository do
 | License and attribution notices | [`../LICENSE`](../LICENSE) and [`../NOTICE`](../NOTICE) |
 | External reference links and mods studied for ideas | [`RESEARCH_LINKS.md`](RESEARCH_LINKS.md) |
 | Agent working rules and current development context | [`../AGENTS.md`](../AGENTS.md) (imported by [`../CLAUDE.md`](../CLAUDE.md), which holds no rules of its own) |
-| Automated checks (package, Lua syntax, sensitive content) | [`../tools/`](../tools/) scripts, documented in [`../tools/README.md`](../tools/README.md) and run by [`../.github/workflows/`](../.github/workflows/) and the [`../.githooks/`](../.githooks/) pre-commit hook |
+| Automated checks (package, Lua syntax, sensitive content) | [`../tools/`](../tools/) scripts, documented in [`../tools/README.md`](../tools/README.md) and run by [`../.github/workflows/`](../.github/workflows/README.md) and the [`../.githooks/`](../.githooks/) pre-commit hook |
 | Test-cycle automation | [`../scripts/README.md`](../scripts/README.md) |
 
 ## Where to start by reader

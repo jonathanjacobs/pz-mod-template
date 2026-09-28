@@ -2,6 +2,8 @@
 
 Status: **Not yet populated**
 
+Do not update for: material the mod distributes ([`../CREDITS.md`](../CREDITS.md)), or saved copies of external pages (keep those in the gitignored `research-source/` folder).
+
 External reference sources for the target Project Zomboid build. These are citations, not redistributed content — see [`PZ_MODDING_POLICY.md`](PZ_MODDING_POLICY.md) for the boundary between studying external material and copying it.
 
 - Community wiki: `TBD`

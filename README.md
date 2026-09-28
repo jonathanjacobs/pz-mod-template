@@ -47,7 +47,7 @@ If a project is short-lived or exploratory, most of this can be ignored or delet
 ### Pre-release / Workshop-publication only — dormant until you're preparing to ship
 
 - `docs/RELEASE_CHECKLIST.md` — the release gate.
-- `docs/STEAM_WORKSHOP.md`, `workshop-description.bbcode` — Workshop publication; leave as a stub or remove if not publishing there.
+- `docs/STEAM_WORKSHOP.md`, `workshop-description.bbcode`, `workshop.txt` — Workshop publication; leave as stubs or remove if not publishing there. Add `preview.png` at the root before the first upload.
 
 ### Fully optional — delete freely if you don't use the workflow
 

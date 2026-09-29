@@ -2,7 +2,7 @@
 
 Do not update for: one mod's answers, which go into the files each stage names.
 
-This document sets up a mod from the template as a series of questions, asked in order, with the file each answer goes into. It covers both a new mod and an existing mod whose repository is being restructured to match the template. Work through it alone, or run `/adopt` in Claude Code to have an agent ask the questions one stage at a time and write the answers in. The README's "Start a new mod" checklist is the same setup for a new mod, and its "Restructure an existing mod" section summarizes the existing-mod path; this document adds the questions behind each step and says which steps a given mod can skip.
+This document sets up a mod from the template as a series of questions, asked in order, with the file each answer goes into. It covers both a new mod and an existing mod whose repository is being restructured to match the template. Work through it alone, or have a coding agent ask the questions one stage at a time and write the answers in: `/adopt` does this in Claude Code, and any other agent can follow [Running this interview with an agent](#running-this-interview-with-an-agent). The README's "Start a new mod" checklist is the same setup for a new mod, and its "Restructure an existing mod" section summarizes the existing-mod path; this document adds the questions behind each step and says which steps a given mod can skip.
 
 Every mod starts at stage 0. A new, small, single-player mod then needs stages 1 to 4, 8, and 9, which take about twenty minutes. An existing mod also goes through stages E1 to E3 before stage 1, and stage 10 at the end.
 
@@ -11,9 +11,26 @@ Two answers are always acceptable: `TBD`, meaning the question applies and nobod
 ## Before you start
 
 1. On GitHub, open [pz-mod-template](https://github.com/jonathanjacobs/pz-mod-template) and choose **Use this template → Create a new repository**. This gives a repository of your own with none of the template's history. For an existing mod, name it whatever suits: the name the mod's repository will finally have, or a temporary name. Stage 10 decides where the finished result ends up.
-2. Clone the new repository, open it in Claude Code, and run `/adopt`. Without Claude Code, work through the stages below by hand.
+2. Clone the new repository and start the interview in one of three ways:
+   - **Claude Code:** run `/adopt`.
+   - **Another coding agent:** ask it to *run the adoption interview in `docs/ADOPTION_INTERVIEW.md`, following its section "Running this interview with an agent"*.
+   - **No agent:** work through the stages below yourself, and skip the next section.
 
 Do not run the interview in a clone of pz-mod-template itself; it rewrites the template's files.
+
+## Running this interview with an agent
+
+These rules are for the coding agent asking the questions. `/adopt` in Claude Code follows them, and any other agent should be told to.
+
+**Before starting.** Run `git remote get-url origin`. If it points at `jonathanjacobs/pz-mod-template`, stop: this is the template itself. Tell the user to create their own repository with "Use this template" first. Then read this document, `AGENTS.md`, and `README.md`. This document is the only source of questions: do not add questions, and do not ask for anything a file already answers; show the existing answer and ask whether it still holds.
+
+**Asking.** Ask one stage at a time. Present that stage's questions, then stop and wait; do not move on, and do not write any file, until the user has answered. After stage 1, say which stages apply and which are skipped, with the reason from the stage 1 table, and confirm that list before going on. Never supply an answer the user did not give. When they do not know, ask whether the question applies, then write `not applicable` or `TBD` and say which you wrote. Accept a partial answer and move on.
+
+**Writing.** Before writing, show the text you propose and the file it goes into. Make each stage one self-contained change, so the user can stop after any stage and leave the repository consistent. Use the user's own words for what the mod does wherever they gave a usable sentence. Follow `AGENTS.md` in everything you write: American English, no hard-wrapped markdown, and no private details. If the user types a player name or server host name in stage 8, do not repeat it or write it anywhere; point them to adding it as a pattern themselves. For a new mod, stage 2 renames `Contents/mods/pz-mod-id/` with `git mv`. Run `bash tools/validate-package.sh` after stage 2 and report its errors and warnings as they are. Do not record that the mod is tested, compatible with a build, or ready for release; the interview produces no evidence of any of those.
+
+**An existing mod.** Follow the [ground rules](#ground-rules) without exception. Read the existing repository only: clone a URL into a temporary folder outside the new repository, and read a local folder in place, asking the user to grant access if it is refused. Never write to it before stage 10. Copy the package tree byte for byte; do not reformat, rename, re-encode, or fix any file in it, including `mod.info`, even when a check reports an error there. Record the error as a gap. Never rename the Mod ID, a mod folder, a sandbox option, a ModData key, a command name, a script module, or a Lua file. In E1, show the inventory and ask the user to correct it, and stop if the mod targets only Build 41. In E2, show the complete mapping plan and wait for confirmation before copying anything. In E3, commit the unchanged copies separately from the merges when the user agrees, compare the tree IDs, and show both. Report every finding of the three checks as it is. In stages 1 to 9, pre-fill each answer from E1, say where it came from, and ask whether it holds; in stage 4, list every contract found in the source.
+
+**Landing and finishing.** In stage 10, explain both choices and let the user pick. For "land it back", show the commands with the real paths filled in, run them only when the user confirms, and show the package-tree check. Never push, open a pull request, or rename, archive, or delete a repository; give the user the steps. Run stage 9 after stages 1 to 8, and stage 10 last. In stage 9, delete only what the user confirms, and never anything copied from an existing repository. End by listing the stages answered, the stages skipped and why, every `TBD` left with the file it is in, and for an existing mod every recorded gap, and say that `validate-package.sh` warnings name what is still a placeholder. Do not commit unless the user asks.
 
 ## Stage 0 — Starting point
 

@@ -22,6 +22,27 @@ Every minor or major release has an `Upgrading` subsection, even when it only sa
 
 ## [Unreleased]
 
+## [0.9.0] - 2026-09-28
+
+### Added
+
+- A "How to use this template" section at the top of `README.md`. It says the template assumes development with an AI coding agent but does not require one, gives the setup route and the way the agent finds its rules for Claude Code, another coding agent, and no agent, names the only Claude Code-specific files, and lists what to install.
+- A "Running this interview with an agent" section in `docs/ADOPTION_INTERVIEW.md`, holding every rule for an agent that runs the interview: the check that the repository is not the template itself, asking one stage at a time, writing, the existing-mod ground rules, and landing. Any coding agent can now be told to follow it.
+- Links from every file and folder in the README's repository map.
+
+### Changed
+
+- `.claude/commands/adopt.md` is now a short wrapper that tells Claude Code to follow the new interview section and reads `/adopt`'s argument. Its rules moved into the interview, so other agents get the same ones.
+- The README's "Getting started" and "Restructure an existing mod" sections, the interview's "Before you start", and `AGENTS.md` describe running the interview with Claude Code, another agent, or by hand, and no longer assume Claude Code.
+
+### Documentation
+
+- An interview path for upgrading a mod created from an earlier template version is proposed in [#1](https://github.com/jonathanjacobs/pz-mod-template/issues/1) and not scheduled.
+
+### Upgrading
+
+Optional; nothing breaks without it. A mod that keeps `docs/ADOPTION_INTERVIEW.md` for later use can take the new version of it together with `.claude/commands/adopt.md`; the two must match, because the command now relies on the interview's agent section.
+
 ## [0.8.1] - 2026-09-28
 
 ### Documentation

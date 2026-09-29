@@ -4,7 +4,7 @@
 
 This repository is the starter workspace for a Project Zomboid mod. This section applies only while a mod is being set up from it. Every section after this one applies to ongoing work and stays.
 
-- Set the mod up by running `/adopt` in Claude Code, or by working through `docs/ADOPTION_INTERVIEW.md`. Both fill in the `TBD` project facts below and remove scaffolding the mod will not use. The same interview restructures an existing mod's repository into this one: it reads the existing repository without changing it, copies the mod's package tree across byte for byte, and changes only documentation, tooling, and top-level layout.
+- Set the mod up by running `/adopt` in Claude Code, by asking another coding agent to run `docs/ADOPTION_INTERVIEW.md` following its section "Running this interview with an agent", or by working through that document by hand. Both fill in the `TBD` project facts below and remove scaffolding the mod will not use. The same interview restructures an existing mod's repository into this one: it reads the existing repository without changing it, copies the mod's package tree across byte for byte, and changes only documentation, tooling, and top-level layout.
 - Never run the interview in a clone of pz-mod-template itself. A mod starts from a repository created with GitHub's "Use this template".
 - When setup is finished, replace this whole section with the section below, and keep this file tailored to the mod from then on.
 
@@ -52,7 +52,7 @@ This mod was created from [pz-mod-template](https://github.com/jonathanjacobs/pz
 - Supported Project Zomboid build: `TBD`
 - Primary multiplayer target: `TBD`
 - Current development branch/release state: `TBD`
-- Template version: `v0.8.1` (the pz-mod-template release this repository's files match; update it after applying a template upgrade)
+- Template version: `v0.9.0` (the pz-mod-template release this repository's files match; update it after applying a template upgrade)
 
 ## Current development context
 

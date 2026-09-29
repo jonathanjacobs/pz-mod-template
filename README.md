@@ -1,10 +1,20 @@
 # Project Zomboid Mod Template
 
-Starter repository for an independent Project Zomboid mod. Use this repository as a Git template, then replace the `TBD` values and remove any scaffolding that has no job in the new project.
+Starter repository for an independent Project Zomboid mod. Use it as a Git template to start a new mod, or to restructure an existing mod's repository, then replace the `TBD` values and remove any scaffolding that has no job in the mod.
 
 Status: **Template / not a deployable mod**  
-Template version: **v0.8.0**  
+Template version: **v0.8.1**  
 Target baseline: **Project Zomboid Build 42 (confirm the exact version per project)**
+
+## Contents
+
+- [Why this template looks the way it does](#why-this-template-looks-the-way-it-does)
+- [Getting started](#getting-started)
+  - [Start a new mod](#start-a-new-mod)
+  - [Restructure an existing mod](#restructure-an-existing-mod)
+- [Upgrading a mod created from an earlier template version](#upgrading-a-mod-created-from-an-earlier-template-version)
+- [Repository map](#repository-map)
+- [License and status](#license-and-status)
 
 ## Why this template looks the way it does
 
@@ -12,11 +22,19 @@ The target workflow is many development sessions — often with an AI coding age
 
 The template keeps that discipline in as few documents as possible: one file per concern, each with a clear owner, and automated checks (the scripts in `tools/`) doing the work that would otherwise be a manual checklist.
 
-## Start a new mod, or restructure an existing one
+## Getting started
 
-Both start the same way: choose **Use this template → Create a new repository** on GitHub, clone the new repository, and run `/adopt` in Claude Code. Its first question is whether this is a new mod or an existing mod's repository being restructured. For an existing mod it asks where that repository is, reads it without changing it, copies the mod's package across unchanged, and moves its documentation into the template's structure; at the end, the result lands back in the existing repository as one pull request, or replaces it. Without Claude Code, [`docs/ADOPTION_INTERVIEW.md`](docs/ADOPTION_INTERVIEW.md) has the same stages to follow by hand.
+New and existing mods start the same way:
 
-For a new mod, the steps below are the same setup as a checklist.
+1. On GitHub, choose **Use this template → Create a new repository**. This gives you a repository of your own without the template's history.
+2. Clone the new repository and open it in Claude Code.
+3. Run `/adopt`. Its first question is whether this is a new mod or an existing mod's repository being restructured.
+
+`/adopt` asks the questions in [`docs/ADOPTION_INTERVIEW.md`](docs/ADOPTION_INTERVIEW.md) one stage at a time, shows each change before making it, and writes the answers into the right files. Without Claude Code, work through that document by hand. Do not run `/adopt` in a clone of this template itself; it stops if you try.
+
+### Start a new mod
+
+`/adopt` asks which kind of mod this is (single-player or multiplayer, published on the Workshop or not), then only the questions that apply. A small single-player mod takes about twenty minutes. The same setup as a checklist:
 
 1. Create a repository from this template.
 2. Rename the placeholder directory at `Contents/mods/pz-mod-id/` to the chosen stable Mod ID.
@@ -27,6 +45,40 @@ For a new mod, the steps below are the same setup as a checklist.
 7. Turn on the pre-commit check for private details, once per clone: `git config core.hooksPath .githooks`. See [`docs/PRIVATE_DATA.md`](docs/PRIVATE_DATA.md) for what it catches.
 8. Replace the "Using this template" section of `AGENTS.md` with the "Relationship to pz-mod-template" section it provides, and in `CHANGELOG.md` replace the template's history with the mod's own `## [Unreleased]`.
 9. Run `bash tools/validate-package.sh`; the remaining warnings list what is still a placeholder.
+
+### Restructure an existing mod
+
+This brings an existing mod's repository into the template's structure: its documentation, repository tooling, and top-level layout. The mod itself does not change, and neither does the existing repository until the last step, when you choose to update it.
+
+**Before you begin**
+
+- The mod must target Build 42. The template's layout, checks, and documents assume it, and `/adopt` stops for a Build 41-only mod.
+- `/adopt` needs to read the existing repository: a local folder, or a URL it can clone. For a private GitHub repository, run `gh auth login` first.
+- Name the new repository whatever suits: the name the mod's repository will finally have, or a temporary one. The last step decides where the result ends up.
+
+**What happens**
+
+Run `/adopt existing <path or URL>`, or run `/adopt` and answer its first two questions. Then:
+
+1. **Inventory.** `/adopt` reads the existing repository without changing it and lists what it finds: where the mod package is, the Mod ID and Workshop ID, the current version, the sandbox options, ModData keys, command names, and item types in the source, the documents, the license, and any CI or scripts. You correct the list.
+2. **Mapping plan.** It proposes what happens to every file, and copies nothing until you confirm:
+   - the mod's package tree is copied exactly as it is, at the same path;
+   - `workshop.txt` and `preview.png` are kept exactly, so the Workshop ID carries over and the next upload updates the existing item;
+   - the mod's own `LICENSE`, `README.md`, and changelog entries are kept, with the template's Apache license kept beside them for the template material;
+   - design notes, to-do lists, test notes, credits, and agent instructions are merged into the template's documents;
+   - other scripts and CI workflows are copied as they are, beside the template's;
+   - logs, saves, secrets files, archives, and build output are left out.
+3. **Copy and check.** The package is copied and compared with the original by Git tree ID; identical IDs mean every file is identical. Then the private-details check, the package validator, and the Lua syntax check run. Nothing inside the package is changed to make them pass: each finding is recorded as a gap in `AGENTS.md` and `docs/ROADMAP.md`, to fix later as an ordinary release. A package that is not at `Contents/mods/<mod-id>/`, for example, fails the validator's layout check until that is done.
+4. **Questions.** The same stages as for a new mod, with each answer already filled in from the inventory, so most become "does this still hold?"
+5. **Landing.** You choose where the result lives:
+   - **Land it back (the default).** The whole restructure becomes one pull request in the existing repository, so its commit history, issues, stars, and the link on the Workshop page all stay. `/adopt` shows the commands, runs them only when you confirm, and checks again that the package is unchanged. The new repository was only a workspace and can be deleted afterward.
+   - **Replace.** The new repository becomes the mod's repository, and the old one is archived with a pointer to it. Its history, issues, and pull requests stay behind in the old repository.
+
+**What never changes**
+
+- No file inside the mod's package tree, including `mod.info`, even when a check reports a problem with it.
+- The Mod ID, folder names, and every name that saves, server settings, or other mods depend on.
+- Anything in the existing repository before the landing step. `/adopt` never pushes, opens pull requests, or renames, archives, or deletes repositories; it gives you the steps to do those yourself.
 
 ## Upgrading a mod created from an earlier template version
 

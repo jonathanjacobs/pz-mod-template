@@ -2,7 +2,7 @@
 
 Do not update for: one mod's answers, which go into the files each stage names.
 
-This document sets up a mod from the template as a series of questions, asked in order, with the file each answer goes into. It covers both a new mod and an existing mod whose repository is being restructured to match the template. Work through it alone, or run `/adopt` in Claude Code to have an agent ask the questions one stage at a time and write the answers in. The README's "Start a new mod, or restructure an existing one" list is the same setup for a new mod as a checklist; this document adds the questions behind each step and says which steps a given mod can skip.
+This document sets up a mod from the template as a series of questions, asked in order, with the file each answer goes into. It covers both a new mod and an existing mod whose repository is being restructured to match the template. Work through it alone, or run `/adopt` in Claude Code to have an agent ask the questions one stage at a time and write the answers in. The README's "Start a new mod" checklist is the same setup for a new mod, and its "Restructure an existing mod" section summarizes the existing-mod path; this document adds the questions behind each step and says which steps a given mod can skip.
 
 Every mod starts at stage 0. A new, small, single-player mod then needs stages 1 to 4, 8, and 9, which take about twenty minutes. An existing mod also goes through stages E1 to E3 before stage 1, and stage 10 at the end.
 

@@ -22,6 +22,12 @@ Every minor or major release has an `Upgrading` subsection, even when it only sa
 
 ## [Unreleased]
 
+## [0.8.1] - 2026-09-28
+
+### Documentation
+
+- `README.md` opens with a table of contents, and its setup section is now "Getting started", with the shared first steps followed by "Start a new mod" and a new "Restructure an existing mod". The new section explains, before anyone runs `/adopt`, what the existing-mod path needs, what each step does, what happens to each kind of file, the two ways the result can land, and what never changes.
+
 ## [0.8.0] - 2026-09-28
 
 ### Changed

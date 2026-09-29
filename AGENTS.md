@@ -52,7 +52,7 @@ This mod was created from [pz-mod-template](https://github.com/jonathanjacobs/pz
 - Supported Project Zomboid build: `TBD`
 - Primary multiplayer target: `TBD`
 - Current development branch/release state: `TBD`
-- Template version: `v0.8.0` (the pz-mod-template release this repository's files match; update it after applying a template upgrade)
+- Template version: `v0.8.1` (the pz-mod-template release this repository's files match; update it after applying a template upgrade)
 
 ## Current development context
 
